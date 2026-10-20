@@ -1,0 +1,11 @@
+# Python 3.12. Install torch separately with its cu128 wheel index.
+torch==2.11.0+cu128
+transformers==5.8.0
+accelerate==1.11.0
+peft==0.18.1
+trl==1.14.1
+datasets==4.7.0
+flash-linear-attention==0.5.2
+liger-kernel==0.8.4
+jmespath==1.1.0
+matplotlib==3.11.2

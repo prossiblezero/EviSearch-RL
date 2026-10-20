@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.env
+*.safetensors
+*.pt
+*.bin
+*.parquet
+*.jsonl
+venv/
+.venv/
+
+# Runtime artifacts always live outside the code checkout.
+/data/
+/runs/
+/models/
+/logs/
+*.log
+*.png

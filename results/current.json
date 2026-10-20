@@ -1,0 +1,210 @@
+{
+  "provenance": "Recorded experiments before source extraction; single training seed.",
+  "splits": {
+    "dev2": {
+      "tasks": 512,
+      "dataset_sha256": "2ba56572c10be3f7a99a3e028f539d4414e24204567979ce7f953a0b6501a36f",
+      "predictions_sha256": {
+        "grpo": "3f7e6cb6e0550e70b1b4601ba907cea07af1e3d32c82cee41e7349e56be2f22b",
+        "igpo": "554ad7631f410617edc569f50988877450ad829445bea22d67541a0a34ec7d5c",
+        "vcr": "a1ef098c324f8000d7f330a33b08548d2c2c3c62694defc7b5488a9c34b1eb54"
+      },
+      "stats": {
+        "grpo": {
+          "em": 0.623046875,
+          "f1": 0.6981343851461039,
+          "full_rate": 0.6875,
+          "em_given_full": 0.7556818181818182,
+          "early_stop": 0.232421875,
+          "search": 2.171875,
+          "format": 0.998046875
+        },
+        "igpo": {
+          "em": 0.611328125,
+          "f1": 0.682063703163959,
+          "full_rate": 0.666015625,
+          "em_given_full": 0.750733137829912,
+          "early_stop": 0.240234375,
+          "search": 2.099609375,
+          "format": 0.998046875
+        },
+        "vcr": {
+          "em": 0.609375,
+          "f1": 0.6716114831349206,
+          "full_rate": 0.703125,
+          "em_given_full": 0.75,
+          "early_stop": 0.1640625,
+          "search": 2.228515625,
+          "format": 0.994140625
+        }
+      },
+      "vcr_minus_grpo": {
+        "em": [
+          -0.013671875,
+          -0.046875,
+          0.01953125
+        ],
+        "early_stop": [
+          -0.068359375,
+          -0.099609375,
+          -0.0390625
+        ]
+      }
+    },
+    "test": {
+      "tasks": 512,
+      "dataset_sha256": "6a0e6e0aef12ae1f7b1f4c5b1a399e96513231bf18663cd2246fd62cc9e09a15",
+      "predictions_sha256": {
+        "grpo": "0b9478a971e82282c40c78286829ffa13cf1d17e55b22ad92300b2c829cbb6ef",
+        "igpo": "33ec357691e54dad29bd457764004fa85d0958b1cdebd6c7e6432bc79d841f35",
+        "vcr": "ed8667e6a9c1093219d95efbe55c7b73a1f42bd3ed812fe20fa5e9b681baf391"
+      },
+      "stats": {
+        "grpo": {
+          "em": 0.5625,
+          "f1": 0.6665638694839412,
+          "full_rate": 0.642578125,
+          "em_given_full": 0.7386018237082067,
+          "early_stop": 0.28125,
+          "search": 2.16796875,
+          "format": 1.0
+        },
+        "igpo": {
+          "em": 0.525390625,
+          "f1": 0.6113837911880541,
+          "full_rate": 0.623046875,
+          "em_given_full": 0.7178683385579937,
+          "early_stop": 0.271484375,
+          "search": 2.10546875,
+          "format": 1.0
+        },
+        "vcr": {
+          "em": 0.568359375,
+          "f1": 0.651316635519301,
+          "full_rate": 0.671875,
+          "em_given_full": 0.7122093023255814,
+          "early_stop": 0.171875,
+          "search": 2.279296875,
+          "format": 0.99609375
+        }
+      },
+      "vcr_minus_grpo": {
+        "em": [
+          0.005859375,
+          -0.029296875,
+          0.04296875
+        ],
+        "early_stop": [
+          -0.109375,
+          -0.146484375,
+          -0.072265625
+        ]
+      }
+    }
+  },
+  "test_baselines": {
+    "base": {
+      "predictions_sha256": "8ae628a01d7e25289c47f8d3e31446e2860ba5f3ade3a2b01d16982438384567",
+      "results": {
+        "agent/general": {
+          "n": 512,
+          "em": 0.0625,
+          "f1": 0.06721364532655168,
+          "evidence_f1": 0.06679687499999999,
+          "evidence_coverage": 0.055338541666666664,
+          "evidence_precision": 0.0908203125,
+          "format_valid": 0.123046875,
+          "references_valid": 0.107421875,
+          "invalid_calls": 10.537109375,
+          "read_evidence_coverage": 0.3346354166666667,
+          "grounded_success": 0.01171875,
+          "training_set_f1": 0.06722800653978697,
+          "generated_tokens": 535.75,
+          "seconds": 9.625519131310284,
+          "truncated": 0.0,
+          "tool_calls_total": 15.9296875,
+          "search_calls": 11.994140625,
+          "read_calls": 1.029296875,
+          "add_evidence_calls": 2.90625,
+          "repeated_queries": 8.1953125
+        },
+        "static/general": {
+          "n": 512,
+          "em": 0.13671875,
+          "f1": 0.21132885782320274,
+          "evidence_f1": 0.317578125,
+          "evidence_coverage": 0.248046875,
+          "evidence_precision": 0.4713541666666667,
+          "format_valid": 0.9921875,
+          "references_valid": 0.990234375,
+          "invalid_calls": 0.0,
+          "read_evidence_coverage": 0.5934244791666666,
+          "grounded_success": 0.001953125,
+          "training_set_f1": 0.21435954456806047,
+          "generated_tokens": 23.6796875,
+          "seconds": 0.38365619257092476,
+          "truncated": 0.0,
+          "tool_calls_total": 11.0,
+          "search_calls": 1.0,
+          "read_calls": 5.0,
+          "add_evidence_calls": 5.0,
+          "repeated_queries": 0.0
+        }
+      }
+    },
+    "teacher-sft": {
+      "predictions_sha256": "b314f872938faa76610f234838423dd793f9cd0be956340b0a7fe542adf2ab6b",
+      "results": {
+        "agent/general": {
+          "n": 512,
+          "em": 0.4375,
+          "f1": 0.5260047269927784,
+          "evidence_f1": 0.7489583333333333,
+          "evidence_coverage": 0.7265625,
+          "evidence_precision": 0.7887369791666666,
+          "format_valid": 1.0,
+          "references_valid": 1.0,
+          "invalid_calls": 0.001953125,
+          "read_evidence_coverage": 0.7265625,
+          "grounded_success": 0.35546875,
+          "training_set_f1": 0.5255382117228429,
+          "generated_tokens": 246.65234375,
+          "seconds": 6.15017752815038,
+          "truncated": 0.0,
+          "tool_calls_total": 5.9921875,
+          "search_calls": 1.908203125,
+          "read_calls": 2.044921875,
+          "add_evidence_calls": 2.0390625,
+          "repeated_queries": 0.005859375
+        },
+        "static/general": {
+          "n": 512,
+          "em": 0.189453125,
+          "f1": 0.27527878136037726,
+          "evidence_f1": 0.34954427083333334,
+          "evidence_coverage": 0.2711588541666667,
+          "evidence_precision": 0.5224609375,
+          "format_valid": 1.0,
+          "references_valid": 0.994140625,
+          "invalid_calls": 0.0,
+          "read_evidence_coverage": 0.5934244791666666,
+          "grounded_success": 0.00390625,
+          "training_set_f1": 0.27845052470950427,
+          "generated_tokens": 24.42578125,
+          "seconds": 0.6060976721346378,
+          "truncated": 0.0,
+          "tool_calls_total": 11.0,
+          "search_calls": 1.0,
+          "read_calls": 5.0,
+          "add_evidence_calls": 5.0,
+          "repeated_queries": 0.0
+        }
+      }
+    }
+  },
+  "limitations": [
+    "The test split was reused and inspected during iterative research; it is not a fresh blind test.",
+    "Bootstrap intervals cover task sampling, not training-seed uncertainty.",
+    "The rationale-SFT checkpoint has dev2 evaluation but no complete recorded test evaluation."
+  ]
+}
