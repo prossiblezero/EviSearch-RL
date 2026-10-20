@@ -12,7 +12,7 @@
 |---|---|
 | 先看一次完整交互 | `python -m evisearch.demo`：无需模型、语料或 GPU 的合成示例 |
 | 从零理解当前代码 | [六课教学路线](docs/learning/README.md)：一课一个机制，直接阅读当前源码 |
-| 为什么最终采用这套方法 | [演化故事](docs/evolution.md)：问题、尝试、证据、取舍与仍未解决的事 |
+| 为什么最终采用这套方法 | [完整演化故事](docs/evolution.md)：v1–v5 的实验数字、失败诊断、判断反转、数据与成本，以及当前结论边界 |
 | 运行训练与评测 | [复现说明](docs/reproduction.md)：环境、冻结产物、命令与边界 |
 | 判断结果说明了什么 | [当前结果](results/README.md)、[机器可读摘要](results/current.json) |
 
