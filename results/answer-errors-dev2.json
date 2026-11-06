@@ -1,0 +1,1522 @@
+{
+ "2b-grpo": {
+  "questions": 512,
+  "complete_evidence": 352,
+  "em_given_complete": 0.7556818181818182,
+  "wrong_with_complete_evidence": 86,
+  "share_of_all_questions": 0.16796875,
+  "categories": {
+   "near_miss": {
+    "count": 38,
+    "share": 0.4418604651162791,
+    "mean_gold_f1": 0.6609535201640465
+   },
+   "wrong_span": {
+    "count": 29,
+    "share": 0.3372093023255814,
+    "mean_gold_f1": 0.029885057471264367
+   },
+   "bridge_entity": {
+    "count": 10,
+    "share": 0.11627906976744186,
+    "mean_gold_f1": 0.25
+   },
+   "not_in_corpus": {
+    "count": 6,
+    "share": 0.06976744186046512,
+    "mean_gold_f1": 0.037037037037037035
+   },
+   "from_distractor": {
+    "count": 3,
+    "share": 0.03488372093023256,
+    "mean_gold_f1": 0.09523809523809525
+   }
+  },
+  "examples": {
+   "near_miss": [
+    {
+     "question": "Who was the prime minister most responsible for building the absolute monarchy of the country containing the institution where Léon Diguet was educated?",
+     "gold": [
+      "Prime Minister Richelieu",
+      "Cardinal Richelieu"
+     ],
+     "predicted": "Richelieu",
+     "hops": [
+      "Léon Diguet >> educated at -> National Museum of Natural History",
+      "Where is #1 located? -> France",
+      "who was the french prime minister most responsible for building the absolute monarchy of #2 -> Prime Minister Richelieu"
+     ]
+    },
+    {
+     "question": "How many universities in the country where Jacques and his Master's author is from offer neerlandistiek courses?",
+     "gold": [
+      "20"
+     ],
+     "predicted": "20 universities",
+     "hops": [
+      "Jacques and his Master >> author -> Milan Kundera",
+      "What city is #1 from? -> France",
+      "How many universities in #2 offer neerlandistiek courses? -> 20"
+     ]
+    },
+    {
+     "question": "When did the first immigrants from the nation that the developer of the printing method that aided the growth of literacy, arrive in America?",
+     "gold": [
+      "In the 1670s"
+     ],
+     "predicted": "1670s",
+     "hops": [
+      "who developed a method of printing that greatly stimulated the growth of literacy -> Johannes Gutenberg",
+      "To which country does #1 belong as its citizen? -> Germany",
+      "when did the first immigrants from #2 arrived in america -> In the 1670s"
+     ]
+    }
+   ],
+   "wrong_span": [
+    {
+     "question": "what was the largest mass uprising in the history of the country where Sigbert Josef Maria Ganser's birthplace is located?",
+     "gold": [
+      "People's Uprising in East Germany",
+      "German Democratic Republic",
+      "DDR",
+      "East Germany"
+     ],
+     "predicted": "more than one million people in about 700 localities",
+     "hops": [
+      "Sigbert Josef Maria Ganser >> place of birth -> Rhaunen",
+      "#1 >> country -> Germany",
+      "what was the largest mass uprising in the history of #2 -> People's Uprising in East Germany"
+     ]
+    },
+    {
+     "question": "In 2017, the Puebla Earthquake hit what part of the country where the pre-title scene in Spectre was filmed?",
+     "gold": [
+      "Central Mexico"
+     ],
+     "predicted": "Morelos",
+     "hops": [
+      "Where was the pre-title scene in Spectre filmed? -> Mexico",
+      "what part of #1 got the earthquake hit -> Central Mexico"
+     ]
+    },
+    {
+     "question": "What is the genre of the person Jones considered a worthy successor to Chopin?",
+     "gold": [
+      "opera",
+      "Opera"
+     ],
+     "predicted": "Sicilian drama",
+     "hops": [
+      "Who was Chopin's worthy successor according to Jones? -> Karol Szymanowski",
+      "#1 >> genre -> opera"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "What is the capital of the state where Oparara Basin is located?",
+     "gold": [
+      "Greymouth"
+     ],
+     "predicted": "Wellington",
+     "hops": [
+      "What is the name of the state where Oparara Basin is located? -> West Coast Region",
+      "#1 >> capital -> Greymouth"
+     ]
+    },
+    {
+     "question": "What country is the actor who plays the character who made the golden calf in the movie the Prince of Egypt a citizen of?",
+     "gold": [
+      "America",
+      "U.S.",
+      "US"
+     ],
+     "predicted": "United States",
+     "hops": [
+      "who made the golden calf in the bible -> Aaron",
+      "who plays #1 in the prince of egypt -> Jeff Goldblum",
+      "#2 >> country of citizenship -> America"
+     ]
+    },
+    {
+     "question": "In which country is Blanca Canales' political party located?",
+     "gold": [
+      "Puerto Rico",
+      "PR"
+     ],
+     "predicted": "Cuba",
+     "hops": [
+      "Blanca Canales >> member of political party -> Puerto Rican Nationalist Party",
+      "#1 >> located in the administrative territorial entity -> Puerto Rico"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "What county shares a border with another county, that in turn borders a third county, where the town of Sharon is located?",
+     "gold": [
+      "Charlotte County"
+     ],
+     "predicted": "Lunenburg County",
+     "hops": [
+      "Sharon >> located in the administrative territorial entity -> York County",
+      "#1 >> shares border with -> Mecklenburg County",
+      "#2 >> shares border with -> Charlotte County"
+     ]
+    },
+    {
+     "question": "Who is the father of Lady Xu Xinyue's spouse?",
+     "gold": [
+      "Qian Liu",
+      "Wusu"
+     ],
+     "predicted": "Qian Chuanguan",
+     "hops": [
+      "What is Lady Xu Xinyue's spouse's name? -> Qian Yuanguan",
+      "#1 >> father -> Qian Liu"
+     ]
+    },
+    {
+     "question": "In what region of the country is the city that dominates Wayne County found?",
+     "gold": [
+      "Midwest",
+      "Midwestern United States"
+     ],
+     "predicted": "Metro Detroit",
+     "hops": [
+      "What city dominates Wayne County? -> Detroit",
+      "In what region of the country is #1 located? -> Midwest"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "When Konya Technical University opens, how many total institutes of technology will there be in the country north of Cyprus and the empire against which the Gallipoli campaign fought?",
+     "gold": [
+      "six"
+     ],
+     "predicted": "6",
+     "hops": [
+      "The Gallipoli Campaign fought against which country? -> the Ottoman Empire",
+      "Which country is north of Cyprus? -> Turkey",
+      "When Konya Technical University opens, how many total institutes of technology will there be in #2 and #1 ? -> six"
+     ]
+    },
+    {
+     "question": "Who was the winner of the 1989 edition of the event in which NBA rings are won?",
+     "gold": [
+      "Detroit Pistons"
+     ],
+     "predicted": "Los Angeles Lakers",
+     "hops": [
+      "how do you win a ring in nba -> NBA Finals",
+      "1989 #1 >> winner -> Detroit Pistons"
+     ]
+    },
+    {
+     "question": "Where did the director who provided the lyrics to A Time for Singing attend school?",
+     "gold": [
+      "Northwestern's School of Communication"
+     ],
+     "predicted": "Northwestern University",
+     "hops": [
+      "A Time for Singing >> lyrics by -> Gerald Freedman",
+      "Where did director #1 attend school? -> Northwestern's School of Communication"
+     ]
+    }
+   ]
+  }
+ },
+ "2b-igpo": {
+  "questions": 512,
+  "complete_evidence": 341,
+  "em_given_complete": 0.750733137829912,
+  "wrong_with_complete_evidence": 85,
+  "share_of_all_questions": 0.166015625,
+  "categories": {
+   "wrong_span": {
+    "count": 42,
+    "share": 0.49411764705882355,
+    "mean_gold_f1": 0.05843482554312048
+   },
+   "near_miss": {
+    "count": 27,
+    "share": 0.3176470588235294,
+    "mean_gold_f1": 0.6537918871252204
+   },
+   "bridge_entity": {
+    "count": 7,
+    "share": 0.08235294117647059,
+    "mean_gold_f1": 0.2857142857142857
+   },
+   "not_in_corpus": {
+    "count": 5,
+    "share": 0.058823529411764705,
+    "mean_gold_f1": 0.0
+   },
+   "from_distractor": {
+    "count": 4,
+    "share": 0.047058823529411764,
+    "mean_gold_f1": 0.07142857142857144
+   }
+  },
+  "examples": {
+   "wrong_span": [
+    {
+     "question": "What country is the body of water by the birthplace of Max Bernstein found in?",
+     "gold": [
+      "Germany",
+      "GER",
+      "DE",
+      "de"
+     ],
+     "predicted": "Romania",
+     "hops": [
+      "What is the place of birth of Max Bernstein? -> Fürth",
+      "Which is the body of water by #1 ? -> Rhine-Main-Danube Canal",
+      "#2 >> country -> Germany"
+     ]
+    },
+    {
+     "question": "What is the genre of the person Jones considered a worthy successor to Chopin?",
+     "gold": [
+      "opera",
+      "Opera"
+     ],
+     "predicted": "Sicilian drama",
+     "hops": [
+      "Who was Chopin's worthy successor according to Jones? -> Karol Szymanowski",
+      "#1 >> genre -> opera"
+     ]
+    },
+    {
+     "question": "What is the record label of the Dry Bones Dance performer?",
+     "gold": [
+      "Solid Rock Records"
+     ],
+     "predicted": "AB Records",
+     "hops": [
+      "Who recorded Dry Bones Dance? -> Mark Heard",
+      "#1 >> record label -> Solid Rock Records"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "What is the capital of the state where Oparara Basin is located?",
+     "gold": [
+      "Greymouth"
+     ],
+     "predicted": "Wellington",
+     "hops": [
+      "What is the name of the state where Oparara Basin is located? -> West Coast Region",
+      "#1 >> capital -> Greymouth"
+     ]
+    },
+    {
+     "question": "What country is the actor who plays the character who made the golden calf in the movie the Prince of Egypt a citizen of?",
+     "gold": [
+      "America",
+      "U.S.",
+      "US"
+     ],
+     "predicted": "United States",
+     "hops": [
+      "who made the golden calf in the bible -> Aaron",
+      "who plays #1 in the prince of egypt -> Jeff Goldblum",
+      "#2 >> country of citizenship -> America"
+     ]
+    },
+    {
+     "question": "Who is the child of the person who associated with the defeat of the British in the Battle of New Orleans?",
+     "gold": [
+      "Daniel Smith Donelson"
+     ],
+     "predicted": "Martin Van Buren",
+     "hops": [
+      "In the Battle of New Orleans, who defeated the British? -> Andrew Jackson",
+      "#1 >> child -> Daniel Smith Donelson"
+     ]
+    }
+   ],
+   "near_miss": [
+    {
+     "question": "What day was the launch of the 7th spacecraft bearing the name of the planet where Hibes Montes is found?",
+     "gold": [
+      "9 August 1973"
+     ],
+     "predicted": "9 August",
+     "hops": [
+      "Where is Hibes Montes found? -> Mars",
+      "What day was #1 7 launched? -> 9 August 1973"
+     ]
+    },
+    {
+     "question": "What is the mountain range that separates Asia from the continent which has a greater history of unitary states?",
+     "gold": [
+      "the Ural Mountains",
+      "Ural Mountains"
+     ],
+     "predicted": "Caucasus Mountains",
+     "hops": [
+      "Who has a greater history of unitary states? -> Europe",
+      "the mountain range that separates #1 from asia is -> the Ural Mountains"
+     ]
+    },
+    {
+     "question": "What region shares border with the district that contains Edgewater?",
+     "gold": [
+      "Clallam County",
+      "Clallam County, Washington"
+     ],
+     "predicted": "Washington",
+     "hops": [
+      "Edgewater >> located in the administrative territorial entity -> Jefferson County",
+      "#1 >> shares border with -> Clallam County"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "Who played a lawyer in season 2 of the TV show named after the Symphony, K. 97's composer being in the jungle?",
+     "gold": [
+      "Gretchen Mol as Nina",
+      "Gretchen Mol"
+     ],
+     "predicted": "Wilson Cruz",
+     "hops": [
+      "Symphony, K. 97 >> composer -> Mozart",
+      "#1 in the jungle season 2 cast lawyer -> Gretchen Mol as Nina"
+     ]
+    },
+    {
+     "question": "How many seasons are there of real housewives for the birthplace of William James Bryan?",
+     "gold": [
+      "twelve seasons"
+     ],
+     "predicted": "12",
+     "hops": [
+      "What is the birth place of William James Bryan? -> Orange County",
+      "how many seasons of real housewives of #1 -> twelve seasons"
+     ]
+    },
+    {
+     "question": "How many seasons are in It's Always Sunny in the US city minting the appreciation medals?",
+     "gold": [
+      "fourteenth season"
+     ],
+     "predicted": "14",
+     "hops": [
+      "In what city were the appreciation medals minted? -> Philadelphia",
+      "how many seasons are in it's always sunny in #1 -> fourteenth season"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "Where did the so-called Waterloo occur for the country that created an integrated system for ADGB?",
+     "gold": [
+      "Suez"
+     ],
+     "predicted": "Great Britain",
+     "hops": [
+      "What country created an integrated system for ADGB? -> Britain",
+      "Where did '#1 's Waterloo' occur? -> Suez"
+     ]
+    },
+    {
+     "question": "Who is the father of Lady Xu Xinyue's spouse?",
+     "gold": [
+      "Qian Liu",
+      "Wusu"
+     ],
+     "predicted": "Qian Chuanguan",
+     "hops": [
+      "What is Lady Xu Xinyue's spouse's name? -> Qian Yuanguan",
+      "#1 >> father -> Qian Liu"
+     ]
+    },
+    {
+     "question": "What series is the model 7, named for the company that manufactures the Dacia Duster, a part of?",
+     "gold": [
+      "supermini",
+      "Supermini"
+     ],
+     "predicted": "Renault",
+     "hops": [
+      "What company manufactures Dacia Duster? -> Renault",
+      "What series is #1 7 a part of? -> supermini"
+     ]
+    }
+   ]
+  }
+ },
+ "2b-vcr": {
+  "questions": 512,
+  "complete_evidence": 360,
+  "em_given_complete": 0.75,
+  "wrong_with_complete_evidence": 90,
+  "share_of_all_questions": 0.17578125,
+  "categories": {
+   "wrong_span": {
+    "count": 44,
+    "share": 0.4888888888888889,
+    "mean_gold_f1": 0.03225108225108225
+   },
+   "near_miss": {
+    "count": 34,
+    "share": 0.37777777777777777,
+    "mean_gold_f1": 0.6493930905695612
+   },
+   "bridge_entity": {
+    "count": 9,
+    "share": 0.1,
+    "mean_gold_f1": 0.1111111111111111
+   },
+   "from_distractor": {
+    "count": 3,
+    "share": 0.03333333333333333,
+    "mean_gold_f1": 0.0
+   }
+  },
+  "examples": {
+   "near_miss": [
+    {
+     "question": "Who was the prime minister most responsible for building the absolute monarchy of the country containing the institution where Léon Diguet was educated?",
+     "gold": [
+      "Prime Minister Richelieu",
+      "Cardinal Richelieu"
+     ],
+     "predicted": "Richelieu",
+     "hops": [
+      "Léon Diguet >> educated at -> National Museum of Natural History",
+      "Where is #1 located? -> France",
+      "who was the french prime minister most responsible for building the absolute monarchy of #2 -> Prime Minister Richelieu"
+     ]
+    },
+    {
+     "question": "Where did the 2012 GDP of the largest economy in Africa rank?",
+     "gold": [
+      "30th in the world"
+     ],
+     "predicted": "30th",
+     "hops": [
+      "what country has the largest economy in africa -> Nigeria",
+      "Where did #1 's 2012 GDP rank? -> 30th in the world"
+     ]
+    },
+    {
+     "question": "What day was the launch of the 7th spacecraft bearing the name of the planet where Hibes Montes is found?",
+     "gold": [
+      "9 August 1973"
+     ],
+     "predicted": "9 August",
+     "hops": [
+      "Where is Hibes Montes found? -> Mars",
+      "What day was #1 7 launched? -> 9 August 1973"
+     ]
+    }
+   ],
+   "wrong_span": [
+    {
+     "question": "Whose New York World newspaper, used yellow journalism to gain support for war, in the country where warheads were found during the Missile Crisis?",
+     "gold": [
+      "Joseph Pulitzer"
+     ],
+     "predicted": "The New York World",
+     "hops": [
+      "What country were warheads in? -> Cuba",
+      "his new york world used yellow journalism to stir up support for war in #1 -> Joseph Pulitzer"
+     ]
+    },
+    {
+     "question": "In 2017, the Puebla Earthquake hit what part of the country where the pre-title scene in Spectre was filmed?",
+     "gold": [
+      "Central Mexico"
+     ],
+     "predicted": "Puebla and Morelos",
+     "hops": [
+      "Where was the pre-title scene in Spectre filmed? -> Mexico",
+      "what part of #1 got the earthquake hit -> Central Mexico"
+     ]
+    },
+    {
+     "question": "What is the genre of the person Jones considered a worthy successor to Chopin?",
+     "gold": [
+      "opera",
+      "Opera"
+     ],
+     "predicted": "Sicilian drama",
+     "hops": [
+      "Who was Chopin's worthy successor according to Jones? -> Karol Szymanowski",
+      "#1 >> genre -> opera"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "What's the main genre for the composer of Air Music?",
+     "gold": [
+      "opera",
+      "Opera"
+     ],
+     "predicted": "post-punk",
+     "hops": [
+      "who won the pulitzer in 1976 for air music -> Ned Rorem",
+      "#1 >> genre -> opera"
+     ]
+    },
+    {
+     "question": "When was he elected by the president introduced the Philadelphia plan providing the framework for affirmative action?",
+     "gold": [
+      "1973"
+     ],
+     "predicted": "June 15, 1804",
+     "hops": [
+      "which president introduced the philadelphia plan which provided the framework for affirmative action -> Nixon",
+      "When was he elected by #1 ? -> 1973"
+     ]
+    },
+    {
+     "question": "Where did Mok Kwai-lan's spouse die?",
+     "gold": [
+      "Canton"
+     ],
+     "predicted": "Los Angeles",
+     "hops": [
+      "What is Mok Kwai-lan's spouse's name? -> Wong Fei-hung",
+      "#1 >> place of death -> Canton"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "What series is the model 7, named for the company that manufactures the Dacia Duster, a part of?",
+     "gold": [
+      "supermini",
+      "Supermini"
+     ],
+     "predicted": "Renault 5",
+     "hops": [
+      "What company manufactures Dacia Duster? -> Renault",
+      "What series is #1 7 a part of? -> supermini"
+     ]
+    },
+    {
+     "question": "The county that includes Hickory Grove borders a second country. What other county is adjacent to that second county?",
+     "gold": [
+      "Charlotte County"
+     ],
+     "predicted": "Lunenburg County",
+     "hops": [
+      "Hickory Grove >> located in the administrative territorial entity -> York County",
+      "#1 >> shares border with -> Mecklenburg County",
+      "#2 >> shares border with -> Charlotte County"
+     ]
+    },
+    {
+     "question": "Who wants the border between the country that released Toss-Up and Armenia opened?",
+     "gold": [
+      "Turkish business lobby"
+     ],
+     "predicted": "Turkey",
+     "hops": [
+      "What country released Toss-Up? -> Turkey",
+      "Who wants the border between #1 and Armenia opened? -> Turkish business lobby"
+     ]
+    }
+   ]
+  }
+ },
+ "9b-sft": {
+  "questions": 512,
+  "complete_evidence": 359,
+  "em_given_complete": 0.807799442896936,
+  "wrong_with_complete_evidence": 69,
+  "share_of_all_questions": 0.134765625,
+  "categories": {
+   "near_miss": {
+    "count": 32,
+    "share": 0.463768115942029,
+    "mean_gold_f1": 0.6495535714285714
+   },
+   "wrong_span": {
+    "count": 26,
+    "share": 0.37681159420289856,
+    "mean_gold_f1": 0.04358974358974359
+   },
+   "bridge_entity": {
+    "count": 9,
+    "share": 0.13043478260869565,
+    "mean_gold_f1": 0.31481481481481477
+   },
+   "not_in_corpus": {
+    "count": 1,
+    "share": 0.014492753623188406,
+    "mean_gold_f1": 0.0
+   },
+   "from_distractor": {
+    "count": 1,
+    "share": 0.014492753623188406,
+    "mean_gold_f1": 0.0
+   }
+  },
+  "examples": {
+   "wrong_span": [
+    {
+     "question": "What country is the body of water by the birthplace of Max Bernstein found in?",
+     "gold": [
+      "Germany",
+      "GER",
+      "DE",
+      "de"
+     ],
+     "predicted": "Netherlands",
+     "hops": [
+      "What is the place of birth of Max Bernstein? -> Fürth",
+      "Which is the body of water by #1 ? -> Rhine-Main-Danube Canal",
+      "#2 >> country -> Germany"
+     ]
+    },
+    {
+     "question": "What is the country of citizenship of the actor who plays John in Meet Me in the Hyman B. Samuels birthplace?",
+     "gold": [
+      "America",
+      "the US",
+      "U.S.",
+      "the United States",
+      "United States",
+      "US"
+     ],
+     "predicted": "American",
+     "hops": [
+      "Hyman B. Samuels >> place of birth -> St Louis",
+      "who plays john in meet me in #1 -> Tom Drake",
+      "#2 >> country of citizenship -> America"
+     ]
+    },
+    {
+     "question": "What's the term limit for an official in the government branch where bills start?",
+     "gold": [
+      "Two years"
+     ],
+     "predicted": "None",
+     "hops": [
+      "do bills start in the house or senate -> House of Representatives",
+      "what is the term of an official in #1 -> Two years"
+     ]
+    }
+   ],
+   "near_miss": [
+    {
+     "question": "what was the largest mass uprising in the history of the country where Sigbert Josef Maria Ganser's birthplace is located?",
+     "gold": [
+      "People's Uprising in East Germany",
+      "German Democratic Republic",
+      "DDR",
+      "East Germany"
+     ],
+     "predicted": "The Uprising of 1953 in East Germany",
+     "hops": [
+      "Sigbert Josef Maria Ganser >> place of birth -> Rhaunen",
+      "#1 >> country -> Germany",
+      "what was the largest mass uprising in the history of #2 -> People's Uprising in East Germany"
+     ]
+    },
+    {
+     "question": "When did the first immigrants from the nation that the developer of the printing method that aided the growth of literacy, arrive in America?",
+     "gold": [
+      "In the 1670s"
+     ],
+     "predicted": "the 1670s",
+     "hops": [
+      "who developed a method of printing that greatly stimulated the growth of literacy -> Johannes Gutenberg",
+      "To which country does #1 belong as its citizen? -> Germany",
+      "when did the first immigrants from #2 arrived in america -> In the 1670s"
+     ]
+    },
+    {
+     "question": "What year did Sender Freies in Fanny von Arnstein's father's birthplace end?",
+     "gold": [
+      "30 April 2003"
+     ],
+     "predicted": "2003",
+     "hops": [
+      "Fanny von Arnstein >> father -> Daniel Itzig",
+      "#1 >> place of birth -> Berlin",
+      "What year did Sender Freies #2 end? -> 30 April 2003"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "In 2017, the Puebla Earthquake hit what part of the country where the pre-title scene in Spectre was filmed?",
+     "gold": [
+      "Central Mexico"
+     ],
+     "predicted": "Mexico City",
+     "hops": [
+      "Where was the pre-title scene in Spectre filmed? -> Mexico",
+      "what part of #1 got the earthquake hit -> Central Mexico"
+     ]
+    },
+    {
+     "question": "What series is the model 7, named for the company that manufactures the Dacia Duster, a part of?",
+     "gold": [
+      "supermini",
+      "Supermini"
+     ],
+     "predicted": "Renault 5",
+     "hops": [
+      "What company manufactures Dacia Duster? -> Renault",
+      "What series is #1 7 a part of? -> supermini"
+     ]
+    },
+    {
+     "question": "The county that includes Hickory Grove borders a second country. What other county is adjacent to that second county?",
+     "gold": [
+      "Charlotte County"
+     ],
+     "predicted": "Lunenburg County",
+     "hops": [
+      "Hickory Grove >> located in the administrative territorial entity -> York County",
+      "#1 >> shares border with -> Mecklenburg County",
+      "#2 >> shares border with -> Charlotte County"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "What is the economy of the city where Sleepy Eyed's performer formed?",
+     "gold": [
+      "$363 billion"
+     ],
+     "predicted": "sixth-largest economy in the world",
+     "hops": [
+      "Sleepy Eyed >> performer -> Buffalo Tom",
+      "#1 >> location of formation -> Boston",
+      "What is the economy of #2 ? -> $363 billion"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "How many seasons are in It's Always Sunny in the US city minting the appreciation medals?",
+     "gold": [
+      "fourteenth season"
+     ],
+     "predicted": "14",
+     "hops": [
+      "In what city were the appreciation medals minted? -> Philadelphia",
+      "how many seasons are in it's always sunny in #1 -> fourteenth season"
+     ]
+    }
+   ]
+  }
+ },
+ "9b-grpo": {
+  "questions": 512,
+  "complete_evidence": 381,
+  "em_given_complete": 0.8320209973753281,
+  "wrong_with_complete_evidence": 64,
+  "share_of_all_questions": 0.125,
+  "categories": {
+   "near_miss": {
+    "count": 31,
+    "share": 0.484375,
+    "mean_gold_f1": 0.6715821812596007
+   },
+   "wrong_span": {
+    "count": 22,
+    "share": 0.34375,
+    "mean_gold_f1": 0.03116883116883117
+   },
+   "bridge_entity": {
+    "count": 6,
+    "share": 0.09375,
+    "mean_gold_f1": 0.19444444444444442
+   },
+   "from_distractor": {
+    "count": 3,
+    "share": 0.046875,
+    "mean_gold_f1": 0.09523809523809525
+   },
+   "not_in_corpus": {
+    "count": 2,
+    "share": 0.03125,
+    "mean_gold_f1": 0.0
+   }
+  },
+  "examples": {
+   "wrong_span": [
+    {
+     "question": "What is the population of Siloam Springs, located in the state that also contains the county where Leslie is found?",
+     "gold": [
+      "16,448"
+     ],
+     "predicted": "15,039",
+     "hops": [
+      "Leslie >> located in the administrative territorial entity -> Lafayette County",
+      "#1 >> located in the administrative territorial entity -> Arkansas",
+      "what is the population of siloam springs #2 -> 16,448"
+     ]
+    },
+    {
+     "question": "What is the record label of the Dry Bones Dance performer?",
+     "gold": [
+      "Solid Rock Records"
+     ],
+     "predicted": "AB Records",
+     "hops": [
+      "Who recorded Dry Bones Dance? -> Mark Heard",
+      "#1 >> record label -> Solid Rock Records"
+     ]
+    },
+    {
+     "question": "What is the country of citizenship of the actor who plays John in Meet Me in the Hyman B. Samuels birthplace?",
+     "gold": [
+      "America",
+      "the US",
+      "U.S.",
+      "the United States",
+      "United States",
+      "US"
+     ],
+     "predicted": "American",
+     "hops": [
+      "Hyman B. Samuels >> place of birth -> St Louis",
+      "who plays john in meet me in #1 -> Tom Drake",
+      "#2 >> country of citizenship -> America"
+     ]
+    }
+   ],
+   "near_miss": [
+    {
+     "question": "What languages can the star of Accident on Hill Road speak, write or sign?",
+     "gold": [
+      "Hindi",
+      "hi"
+     ],
+     "predicted": "Hindi, Marathi",
+     "hops": [
+      "In the film Accident on Hill Road, who was the star? -> Farooq Sheikh",
+      "#1 >> languages spoken, written or signed -> Hindi"
+     ]
+    },
+    {
+     "question": "How does the per capita personal income for the only state where the U.S. touches the Bering Sea rank against other states?",
+     "gold": [
+      "15th in the nation"
+     ],
+     "predicted": "15th",
+     "hops": [
+      "where does the bering sea touch the united states -> Alaska",
+      "How does #1 's per capita personal income rank against other states? -> 15th in the nation"
+     ]
+    },
+    {
+     "question": "When did the first immigrants from the nation that the developer of the printing method that aided the growth of literacy, arrive in America?",
+     "gold": [
+      "In the 1670s"
+     ],
+     "predicted": "the 1670s",
+     "hops": [
+      "who developed a method of printing that greatly stimulated the growth of literacy -> Johannes Gutenberg",
+      "To which country does #1 belong as its citizen? -> Germany",
+      "when did the first immigrants from #2 arrived in america -> In the 1670s"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "What series is the model 7, named for the company that manufactures the Dacia Duster, a part of?",
+     "gold": [
+      "supermini",
+      "Supermini"
+     ],
+     "predicted": "Renault 5",
+     "hops": [
+      "What company manufactures Dacia Duster? -> Renault",
+      "What series is #1 7 a part of? -> supermini"
+     ]
+    },
+    {
+     "question": "Who is the sibling of the star in the film Material Girls?",
+     "gold": [
+      "Hilary Duff"
+     ],
+     "predicted": "Haylie Duff",
+     "hops": [
+      "In the film Material Girls, who was the star? -> Haylie Duff",
+      "#1 >> sibling -> Hilary Duff"
+     ]
+    },
+    {
+     "question": "What series is model 7 of the company that produced VBC-90 a part of?",
+     "gold": [
+      "supermini",
+      "Supermini"
+     ],
+     "predicted": "Renault 5",
+     "hops": [
+      "What company produced VBC-90? -> Renault",
+      "What series is #1 7 a part of? -> supermini"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "What is the economy of the city where Sleepy Eyed's performer formed?",
+     "gold": [
+      "$363 billion"
+     ],
+     "predicted": "sixth-largest in the country",
+     "hops": [
+      "Sleepy Eyed >> performer -> Buffalo Tom",
+      "#1 >> location of formation -> Boston",
+      "What is the economy of #2 ? -> $363 billion"
+     ]
+    },
+    {
+     "question": "What is the economy of the city where the first library is located in the country with the same name as the group who sang Horse with No Name?",
+     "gold": [
+      "$363 billion"
+     ],
+     "predicted": "sixth-largest in the world",
+     "hops": [
+      "who sang desert on a horse with no name -> America",
+      "where was the first public library in #1 located -> Boston",
+      "What is the economy of #2 ? -> $363 billion"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "How many seasons are in It's Always Sunny in the US city minting the appreciation medals?",
+     "gold": [
+      "fourteenth season"
+     ],
+     "predicted": "14",
+     "hops": [
+      "In what city were the appreciation medals minted? -> Philadelphia",
+      "how many seasons are in it's always sunny in #1 -> fourteenth season"
+     ]
+    },
+    {
+     "question": "In which city is the university associated with Ahmad Khan Daryabeigi?",
+     "gold": [
+      "Tehran"
+     ],
+     "predicted": "Panipat",
+     "hops": [
+      "Which college or university is related with Ahmad Khan Daryabeigi? -> Dar ul-Funun",
+      "#1 >> located in the administrative territorial entity -> Tehran"
+     ]
+    },
+    {
+     "question": "Where did the director who provided the lyrics to A Time for Singing attend school?",
+     "gold": [
+      "Northwestern's School of Communication"
+     ],
+     "predicted": "Northwestern University",
+     "hops": [
+      "A Time for Singing >> lyrics by -> Gerald Freedman",
+      "Where did director #1 attend school? -> Northwestern's School of Communication"
+     ]
+    }
+   ]
+  }
+ },
+ "9b-vcr": {
+  "questions": 512,
+  "complete_evidence": 378,
+  "em_given_complete": 0.828042328042328,
+  "wrong_with_complete_evidence": 65,
+  "share_of_all_questions": 0.126953125,
+  "categories": {
+   "near_miss": {
+    "count": 29,
+    "share": 0.4461538461538462,
+    "mean_gold_f1": 0.6666407397804857
+   },
+   "wrong_span": {
+    "count": 23,
+    "share": 0.35384615384615387,
+    "mean_gold_f1": 0.07895100069013113
+   },
+   "bridge_entity": {
+    "count": 8,
+    "share": 0.12307692307692308,
+    "mean_gold_f1": 0.1875
+   },
+   "not_in_corpus": {
+    "count": 4,
+    "share": 0.06153846153846154,
+    "mean_gold_f1": 0.0
+   },
+   "from_distractor": {
+    "count": 1,
+    "share": 0.015384615384615385,
+    "mean_gold_f1": 0.28571428571428575
+   }
+  },
+  "examples": {
+   "near_miss": [
+    {
+     "question": "Where was the artist who originally recorded Cinderella's Eyes born?",
+     "gold": [
+      "Stamford"
+     ],
+     "predicted": "Stamford, Lincolnshire",
+     "hops": [
+      "Who originally recorded Cinderella's Eyes? -> Nicola Roberts",
+      "Where was #1 born? -> Stamford"
+     ]
+    },
+    {
+     "question": "What languages can the star of Accident on Hill Road speak, write or sign?",
+     "gold": [
+      "Hindi",
+      "hi"
+     ],
+     "predicted": "Hindi, Marathi",
+     "hops": [
+      "In the film Accident on Hill Road, who was the star? -> Farooq Sheikh",
+      "#1 >> languages spoken, written or signed -> Hindi"
+     ]
+    },
+    {
+     "question": "What was the goal of the battle that occurred where Raymond lives in Everybody Loves Raymond?",
+     "gold": [
+      "control of the strategically important city of New York"
+     ],
+     "predicted": "to give them control of the strategically important city of New York",
+     "hops": [
+      "where does raymond live in everybody loves raymond -> Long Island",
+      "what was the goal of the battle of #1 -> control of the strategically important city of New York"
+     ]
+    }
+   ],
+   "wrong_span": [
+    {
+     "question": "In 2017, the Puebla Earthquake hit what part of the country where the pre-title scene in Spectre was filmed?",
+     "gold": [
+      "Central Mexico"
+     ],
+     "predicted": "Puebla and Morelos",
+     "hops": [
+      "Where was the pre-title scene in Spectre filmed? -> Mexico",
+      "what part of #1 got the earthquake hit -> Central Mexico"
+     ]
+    },
+    {
+     "question": "What is the population of Siloam Springs, located in the state that also contains the county where Leslie is found?",
+     "gold": [
+      "16,448"
+     ],
+     "predicted": "15,039",
+     "hops": [
+      "Leslie >> located in the administrative territorial entity -> Lafayette County",
+      "#1 >> located in the administrative territorial entity -> Arkansas",
+      "what is the population of siloam springs #2 -> 16,448"
+     ]
+    },
+    {
+     "question": "What is the record label of the Dry Bones Dance performer?",
+     "gold": [
+      "Solid Rock Records"
+     ],
+     "predicted": "Fingerprint Records",
+     "hops": [
+      "Who recorded Dry Bones Dance? -> Mark Heard",
+      "#1 >> record label -> Solid Rock Records"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "In what region of the country is the city that dominates Wayne County found?",
+     "gold": [
+      "Midwest",
+      "Midwestern United States"
+     ],
+     "predicted": "Metro Detroit",
+     "hops": [
+      "What city dominates Wayne County? -> Detroit",
+      "In what region of the country is #1 located? -> Midwest"
+     ]
+    },
+    {
+     "question": "What series is the model 7, named for the company that manufactures the Dacia Duster, a part of?",
+     "gold": [
+      "supermini",
+      "Supermini"
+     ],
+     "predicted": "Renault 5 supermini",
+     "hops": [
+      "What company manufactures Dacia Duster? -> Renault",
+      "What series is #1 7 a part of? -> supermini"
+     ]
+    },
+    {
+     "question": "Who is the sibling of the star in the film Material Girls?",
+     "gold": [
+      "Hilary Duff"
+     ],
+     "predicted": "Haylie Duff",
+     "hops": [
+      "In the film Material Girls, who was the star? -> Haylie Duff",
+      "#1 >> sibling -> Hilary Duff"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "What is the economy of the city where Sleepy Eyed's performer formed?",
+     "gold": [
+      "$363 billion"
+     ],
+     "predicted": "sixth-largest in the country",
+     "hops": [
+      "Sleepy Eyed >> performer -> Buffalo Tom",
+      "#1 >> location of formation -> Boston",
+      "What is the economy of #2 ? -> $363 billion"
+     ]
+    },
+    {
+     "question": "What is the economy of the city where the performer of Birdbrain was formed?",
+     "gold": [
+      "$363 billion"
+     ],
+     "predicted": "sixth-largest in the country",
+     "hops": [
+      "Birdbrain >> performer -> Buffalo Tom",
+      "#1 >> location of formation -> Boston",
+      "What is the economy of #2 ? -> $363 billion"
+     ]
+    },
+    {
+     "question": "What is the county where Punta Gorda, Florida is located named after?",
+     "gold": [
+      "Charlotte Harbor"
+     ],
+     "predicted": "King Charles II",
+     "hops": [
+      "what county is punta gorda florida located in -> Charlotte County",
+      "#1 >> named after -> Charlotte Harbor"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "Where did the director who provided the lyrics to A Time for Singing attend school?",
+     "gold": [
+      "Northwestern's School of Communication"
+     ],
+     "predicted": "Northwestern University",
+     "hops": [
+      "A Time for Singing >> lyrics by -> Gerald Freedman",
+      "Where did director #1 attend school? -> Northwestern's School of Communication"
+     ]
+    }
+   ]
+  }
+ },
+ "9b-vcr_mul": {
+  "questions": 512,
+  "complete_evidence": 383,
+  "em_given_complete": 0.8120104438642297,
+  "wrong_with_complete_evidence": 72,
+  "share_of_all_questions": 0.140625,
+  "categories": {
+   "near_miss": {
+    "count": 33,
+    "share": 0.4583333333333333,
+    "mean_gold_f1": 0.651082251082251
+   },
+   "wrong_span": {
+    "count": 28,
+    "share": 0.3888888888888889,
+    "mean_gold_f1": 0.05714285714285715
+   },
+   "bridge_entity": {
+    "count": 7,
+    "share": 0.09722222222222222,
+    "mean_gold_f1": 0.16666666666666666
+   },
+   "from_distractor": {
+    "count": 2,
+    "share": 0.027777777777777776,
+    "mean_gold_f1": 0.0
+   },
+   "not_in_corpus": {
+    "count": 1,
+    "share": 0.013888888888888888,
+    "mean_gold_f1": 0.0
+   },
+   "insufficient": {
+    "count": 1,
+    "share": 0.013888888888888888,
+    "mean_gold_f1": 0.0
+   }
+  },
+  "examples": {
+   "wrong_span": [
+    {
+     "question": "what was the largest mass uprising in the history of the country where Sigbert Josef Maria Ganser's birthplace is located?",
+     "gold": [
+      "People's Uprising in East Germany",
+      "German Democratic Republic",
+      "DDR",
+      "East Germany"
+     ],
+     "predicted": "Uprising of 1953",
+     "hops": [
+      "Sigbert Josef Maria Ganser >> place of birth -> Rhaunen",
+      "#1 >> country -> Germany",
+      "what was the largest mass uprising in the history of #2 -> People's Uprising in East Germany"
+     ]
+    },
+    {
+     "question": "What is the record label of the Dry Bones Dance performer?",
+     "gold": [
+      "Solid Rock Records"
+     ],
+     "predicted": "AB Records",
+     "hops": [
+      "Who recorded Dry Bones Dance? -> Mark Heard",
+      "#1 >> record label -> Solid Rock Records"
+     ]
+    },
+    {
+     "question": "Who was the composer of The Beggar's was an instance of Golem?",
+     "gold": [
+      "Johann Christoph Pepusch"
+     ],
+     "predicted": "Nicolae Bretan",
+     "hops": [
+      "Golem >> instance of -> opera",
+      "The Beggar's #1 >> composer -> Johann Christoph Pepusch"
+     ]
+    }
+   ],
+   "near_miss": [
+    {
+     "question": "What languages can the star of Accident on Hill Road speak, write or sign?",
+     "gold": [
+      "Hindi",
+      "hi"
+     ],
+     "predicted": "Hindi, Marathi",
+     "hops": [
+      "In the film Accident on Hill Road, who was the star? -> Farooq Sheikh",
+      "#1 >> languages spoken, written or signed -> Hindi"
+     ]
+    },
+    {
+     "question": "What military branch did the writer of the book Bravo Two Zero was based on serve in?",
+     "gold": [
+      "British Army"
+     ],
+     "predicted": "British Army regiment the SAS",
+     "hops": [
+      "Bravo Two Zero >> has part -> Andy McNab",
+      "#1 >> military branch -> British Army"
+     ]
+    },
+    {
+     "question": "When did the first immigrants from the nation that the developer of the printing method that aided the growth of literacy, arrive in America?",
+     "gold": [
+      "In the 1670s"
+     ],
+     "predicted": "the 1670s",
+     "hops": [
+      "who developed a method of printing that greatly stimulated the growth of literacy -> Johannes Gutenberg",
+      "To which country does #1 belong as its citizen? -> Germany",
+      "when did the first immigrants from #2 arrived in america -> In the 1670s"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "When Konya Technical University opens, how many total institutes of technology will there be in the country north of Cyprus and the empire against which the Gallipoli campaign fought?",
+     "gold": [
+      "six"
+     ],
+     "predicted": "6",
+     "hops": [
+      "The Gallipoli Campaign fought against which country? -> the Ottoman Empire",
+      "Which country is north of Cyprus? -> Turkey",
+      "When Konya Technical University opens, how many total institutes of technology will there be in #2 and #1 ? -> six"
+     ]
+    },
+    {
+     "question": "Which country is the author of Chinese Gung-Fu: The Philosophical Art of Self Defense from?",
+     "gold": [
+      "Hong Kong"
+     ],
+     "predicted": "China",
+     "hops": [
+      "Chinese Gung-Fu: The Philosophical Art of Self Defense >> author -> Bruce Lee",
+      "#1 and I >> country of origin -> Hong Kong"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "What series is the model 7, named for the company that manufactures the Dacia Duster, a part of?",
+     "gold": [
+      "supermini",
+      "Supermini"
+     ],
+     "predicted": "Renault 5",
+     "hops": [
+      "What company manufactures Dacia Duster? -> Renault",
+      "What series is #1 7 a part of? -> supermini"
+     ]
+    },
+    {
+     "question": "Who is the sibling of the star in the film Material Girls?",
+     "gold": [
+      "Hilary Duff"
+     ],
+     "predicted": "Haylie Duff",
+     "hops": [
+      "In the film Material Girls, who was the star? -> Haylie Duff",
+      "#1 >> sibling -> Hilary Duff"
+     ]
+    },
+    {
+     "question": "What is the county where Punta Gorda, Florida is located named after?",
+     "gold": [
+      "Charlotte Harbor"
+     ],
+     "predicted": "Charlotte",
+     "hops": [
+      "what county is punta gorda florida located in -> Charlotte County",
+      "#1 >> named after -> Charlotte Harbor"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "What is the economy of the city where Sleepy Eyed's performer formed?",
+     "gold": [
+      "$363 billion"
+     ],
+     "predicted": "sixth-largest in the world",
+     "hops": [
+      "Sleepy Eyed >> performer -> Buffalo Tom",
+      "#1 >> location of formation -> Boston",
+      "What is the economy of #2 ? -> $363 billion"
+     ]
+    }
+   ],
+   "insufficient": [
+    {
+     "question": "How many universities offer neerlandistiek courses in the country the author of Laughable Loves is from?",
+     "gold": [
+      "20"
+     ],
+     "predicted": "insufficient evidence",
+     "hops": [
+      "Laughable Loves >> author -> Milan Kundera",
+      "What city is #1 from? -> France",
+      "How many universities in #2 offer neerlandistiek courses? -> 20"
+     ]
+    }
+   ]
+  }
+ },
+ "scoring_sensitivity": {
+  "rates": {
+   "2b-grpo": {
+    "em": 0.623046875,
+    "contained": 0.720703125,
+    "form_mismatch": 0.09765625
+   },
+   "2b-igpo": {
+    "em": 0.611328125,
+    "contained": 0.71484375,
+    "form_mismatch": 0.103515625
+   },
+   "2b-vcr": {
+    "em": 0.609375,
+    "contained": 0.705078125,
+    "form_mismatch": 0.095703125
+   },
+   "9b-sft": {
+    "em": 0.66796875,
+    "contained": 0.759765625,
+    "form_mismatch": 0.091796875
+   },
+   "9b-grpo": {
+    "em": 0.708984375,
+    "contained": 0.8046875,
+    "form_mismatch": 0.095703125
+   },
+   "9b-vcr": {
+    "em": 0.720703125,
+    "contained": 0.8046875,
+    "form_mismatch": 0.083984375
+   },
+   "9b-vcr_mul": {
+    "em": 0.6796875,
+    "contained": 0.7890625,
+    "form_mismatch": 0.109375
+   }
+  },
+  "paired": {
+   "9b-vcr_mul_minus_9b-grpo": {
+    "em": [
+     -0.029296875,
+     -0.0625,
+     0.00390625
+    ],
+    "contained": [
+     -0.015625,
+     -0.04296875,
+     0.01171875
+    ]
+   },
+   "9b-vcr_minus_9b-grpo": {
+    "em": [
+     0.01171875,
+     -0.01953125,
+     0.04296875
+    ],
+    "contained": [
+     0.0,
+     -0.02734375,
+     0.02734375
+    ]
+   },
+   "2b-vcr_minus_2b-grpo": {
+    "em": [
+     -0.013671875,
+     -0.046875,
+     0.01953125
+    ],
+    "contained": [
+     -0.015625,
+     -0.046875,
+     0.017578125
+    ]
+   },
+   "2b-vcr_minus_2b-igpo": {
+    "em": [
+     -0.001953125,
+     -0.037109375,
+     0.033203125
+    ],
+    "contained": [
+     -0.009765625,
+     -0.044921875,
+     0.025390625
+    ]
+   }
+  },
+  "criterion": "contained: EM, or a gold alias and the answer contain one another after normalisation"
+ },
+ "note": "Surface-form classification on normalised text, not entailment. Complete evidence means every annotated support document was cited; the subsets differ between models, so counts are not paired."
+}

@@ -1,0 +1,1458 @@
+{
+ "2b-grpo": {
+  "questions": 512,
+  "complete_evidence": 329,
+  "em_given_complete": 0.7386018237082067,
+  "wrong_with_complete_evidence": 86,
+  "share_of_all_questions": 0.16796875,
+  "categories": {
+   "near_miss": {
+    "count": 40,
+    "share": 0.46511627906976744,
+    "mean_gold_f1": 0.7083791086364616
+   },
+   "wrong_span": {
+    "count": 32,
+    "share": 0.37209302325581395,
+    "mean_gold_f1": 0.07493961352657005
+   },
+   "bridge_entity": {
+    "count": 9,
+    "share": 0.10465116279069768,
+    "mean_gold_f1": 0.37222222222222223
+   },
+   "from_distractor": {
+    "count": 3,
+    "share": 0.03488372093023256,
+    "mean_gold_f1": 0.13333333333333333
+   },
+   "not_in_corpus": {
+    "count": 2,
+    "share": 0.023255813953488372,
+    "mean_gold_f1": 0.0
+   }
+  },
+  "examples": {
+   "near_miss": [
+    {
+     "question": "The operator of Brent field announced it was in the process of doing what in April 2010?",
+     "gold": [
+      "trying to find a potential buyer for all of its operations in Finland",
+      "FIN",
+      "fi",
+      "Finland"
+     ],
+     "predicted": "trying to find a potential buyer",
+     "hops": [
+      "Brent field >> operator -> Shell",
+      "#1 announced it was in the process of doing what in April 2010? -> trying to find a potential buyer for all of its operations in Finland"
+     ]
+    },
+    {
+     "question": "Who is the show Hawkgirl is from by?",
+     "gold": [
+      "Alfred Gough",
+      "Miles Millar"
+     ],
+     "predicted": "Alfred Gough and Miles Millar",
+     "hops": [
+      "What show is Hawkgirl from? -> Smallville",
+      "Who is #1 by? -> Alfred Gough"
+     ]
+    },
+    {
+     "question": "Who followed the father of Menucha Rochel Slonim?",
+     "gold": [
+      "Menachem Mendel Schneersohn"
+     ],
+     "predicted": "Rabbi Menachem Mendel Schneersohn",
+     "hops": [
+      "Menucha Rochel Slonim >> father -> Dovber Schneuri",
+      "#1 >> followed by -> Menachem Mendel Schneersohn"
+     ]
+    }
+   ],
+   "wrong_span": [
+    {
+     "question": "When did the crowning of the person under whom the Chapter House was built happen?",
+     "gold": [
+      "1216"
+     ],
+     "predicted": "17 May 1220",
+     "hops": [
+      "Under whom was the chapter house built? -> Henry III",
+      "When was #1 crowned? -> 1216"
+     ]
+    },
+    {
+     "question": "Who is the federal leader of John Lynch-Staunton's political party?",
+     "gold": [
+      "Andrew Scheer"
+     ],
+     "predicted": "Stephen Harper",
+     "hops": [
+      "John Lynch-Staunton >> member of political party -> Conservative Party of Canada",
+      "federal leader of #1 -> Andrew Scheer"
+     ]
+    },
+    {
+     "question": "What was an economic effect of the war during which Hayek started working on Abuse of Reason?",
+     "gold": [
+      "much of the European industrial infrastructure had been destroyed"
+     ],
+     "predicted": "European economy had collapsed",
+     "hops": [
+      "When did Hayek start working on Abuse of Reason? -> During World War II",
+      "what was an economic effect of #1 -> much of the European industrial infrastructure had been destroyed"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "In The Godfather Part II, who did the producer of Mistress play?",
+     "gold": [
+      "Vito Corleone",
+      "Vito Andolini",
+      "Vito Andolini Corleone"
+     ],
+     "predicted": "Robert Duvall",
+     "hops": [
+      "Mistress >> producer -> Robert De Niro",
+      "who did #1 play in godfather 2 -> Vito Corleone"
+     ]
+    },
+    {
+     "question": "What was the first OS to support the Hyper-V protocol, developed by the company that the letters MS stand for, in the network where The Rachel Maddow Show is found?",
+     "gold": [
+      "Windows 8"
+     ],
+     "predicted": "Windows Server 2008",
+     "hops": [
+      "Where can you find the show The Rachel Maddow Show? -> MSNBC",
+      "what do the letters ms in #1 stand for -> Microsoft",
+      "what was the first os to support #2 hyper-v -> Windows 8"
+     ]
+    },
+    {
+     "question": "How were the people that the Somali Muslim Ajuran Empire made coins to proclaim independence from, expelled from the country where Star Cola is produced?",
+     "gold": [
+      "The dynasty regrouped and defeated the Portuguese"
+     ],
+     "predicted": "Portugal",
+     "hops": [
+      "New coins were a proclamation of independence by the Somali Muslim Ajuran Empire from whom? -> the Portuguese",
+      "The country for Star Cola was what? -> Myanmar",
+      "How were the #1 expelled from #2 ? -> The dynasty regrouped and defeated the Portuguese"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "Who was the father of the person who issued the Tamworth manifesto?",
+     "gold": [
+      "Sir Robert Peel, 1st Baronet"
+     ],
+     "predicted": "Sir Robert Peel",
+     "hops": [
+      "Who Issued the Tamworth manifesto? -> Robert Peel",
+      "#1 >> father -> Sir Robert Peel, 1st Baronet"
+     ]
+    },
+    {
+     "question": "Bancroft's county borders what county?",
+     "gold": [
+      "Haliburton County"
+     ],
+     "predicted": "Renfrew County",
+     "hops": [
+      "Bancroft >> located in the administrative territorial entity -> Hastings County",
+      "#1 >> shares border with -> Haliburton County"
+     ]
+    },
+    {
+     "question": "What was the story of the character from The Bourne Ultimatum based on?",
+     "gold": [
+      "the novel of the same name by Robert Ludlum",
+      "Robert Ludlum"
+     ],
+     "predicted": "The Bourne Identity",
+     "hops": [
+      "The The Bourne Ultimatum has what character? -> Jason Bourne",
+      "What was the story of #1 based on? -> the novel of the same name by Robert Ludlum"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "When did the merchant of the city where the composer of Al gran sole carico d'amore takes place?",
+     "gold": [
+      "16th - century"
+     ],
+     "predicted": "1596-1599",
+     "hops": [
+      "Al gran sole carico d'amore >> composer -> Luigi Nono",
+      "#1 >> work location -> Venice",
+      "when did the merchant of #2 take place -> 16th - century"
+     ]
+    },
+    {
+     "question": "Where was the first woman appointed to the Supreme Court educated?",
+     "gold": [
+      "Stanford University",
+      "Stanford"
+     ],
+     "predicted": "Harvard Law School",
+     "hops": [
+      "who was the first woman appointed to the supreme court -> Sandra Day O'Connor",
+      "#1 >> educated at -> Stanford University"
+     ]
+    }
+   ]
+  }
+ },
+ "2b-igpo": {
+  "questions": 512,
+  "complete_evidence": 319,
+  "em_given_complete": 0.7178683385579937,
+  "wrong_with_complete_evidence": 90,
+  "share_of_all_questions": 0.17578125,
+  "categories": {
+   "wrong_span": {
+    "count": 38,
+    "share": 0.4222222222222222,
+    "mean_gold_f1": 0.09151138716356108
+   },
+   "near_miss": {
+    "count": 37,
+    "share": 0.4111111111111111,
+    "mean_gold_f1": 0.6856899106899107
+   },
+   "bridge_entity": {
+    "count": 11,
+    "share": 0.12222222222222222,
+    "mean_gold_f1": 0.26212121212121214
+   },
+   "from_distractor": {
+    "count": 3,
+    "share": 0.03333333333333333,
+    "mean_gold_f1": 0.0
+   },
+   "not_in_corpus": {
+    "count": 1,
+    "share": 0.011111111111111112,
+    "mean_gold_f1": 0.4
+   }
+  },
+  "examples": {
+   "wrong_span": [
+    {
+     "question": "Who is the spouse of the person who voices Smokey the bear?",
+     "gold": [
+      "Katharine Ross"
+     ],
+     "predicted": "Farrah Fawcett",
+     "hops": [
+      "who does the voice of smokey the bear -> Sam Elliott",
+      "#1 >> spouse -> Katharine Ross"
+     ]
+    },
+    {
+     "question": "Who was the sibling of Nannina de' Medici?",
+     "gold": [
+      "Giuliano de' Medici"
+     ],
+     "predicted": "Lorenzo the Magnificent",
+     "hops": [
+      "Nannina de' Medici >> mother -> Lucrezia Tornabuoni",
+      "#1 >> child -> Giuliano de' Medici"
+     ]
+    },
+    {
+     "question": "What administrative territorial entity is the owner of Ciudad Deportiva located?",
+     "gold": [
+      "Tamaulipas"
+     ],
+     "predicted": "Mexican state of Tamaulipas",
+     "hops": [
+      "Ciudad Deportiva >> owned by -> Nuevo Laredo",
+      "#1 >> located in the administrative territorial entity -> Tamaulipas"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "In The Godfather Part II, who did the producer of Mistress play?",
+     "gold": [
+      "Vito Corleone",
+      "Vito Andolini",
+      "Vito Andolini Corleone"
+     ],
+     "predicted": "Robert Duvall",
+     "hops": [
+      "Mistress >> producer -> Robert De Niro",
+      "who did #1 play in godfather 2 -> Vito Corleone"
+     ]
+    },
+    {
+     "question": "In Willy Wonka and the Chocolate Factory, who played the character that the band who performs Eight Arms to Hold You is named after?",
+     "gold": [
+      "Julie Dawn Cole"
+     ],
+     "predicted": "David Kelly",
+     "hops": [
+      "Eight Arms to Hold You >> performer -> Veruca Salt",
+      "who played #1 in willy wonka and the chocolate factory -> Julie Dawn Cole"
+     ]
+    },
+    {
+     "question": "Who is the president of the newly declared independent country, that established the Timor Leste Commission of Truth and Friendship with the country where the Alas is found?",
+     "gold": [
+      "Francisco Guterres"
+     ],
+     "predicted": "Xanana Gusmão",
+     "hops": [
+      "Alas >> country -> Indonesia",
+      "#1 –Timor Leste Commission of Truth and Friendship >> country -> East Timor",
+      "who is the president of newly declared independent country #2 -> Francisco Guterres"
+     ]
+    }
+   ],
+   "near_miss": [
+    {
+     "question": "Who is the show Hawkgirl is from by?",
+     "gold": [
+      "Alfred Gough",
+      "Miles Millar"
+     ],
+     "predicted": "Alfred Gough and Miles Millar",
+     "hops": [
+      "What show is Hawkgirl from? -> Smallville",
+      "Who is #1 by? -> Alfred Gough"
+     ]
+    },
+    {
+     "question": "Who followed the father of Menucha Rochel Slonim?",
+     "gold": [
+      "Menachem Mendel Schneersohn"
+     ],
+     "predicted": "Rabbi Menachem Mendel Schneersohn",
+     "hops": [
+      "Menucha Rochel Slonim >> father -> Dovber Schneuri",
+      "#1 >> followed by -> Menachem Mendel Schneersohn"
+     ]
+    },
+    {
+     "question": "How long are the council terms in the second largest city in the US state focused by the cross-border transactions committee of the Department of Real Estate?",
+     "gold": [
+      "four-year"
+     ],
+     "predicted": "four years",
+     "hops": [
+      "In what state is the committee focusing? -> Arizona",
+      "What is the second largest city in #1 ? -> Tucson",
+      "How long are #2 's city council terms? -> four-year"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "Who was the father of the person who issued the Tamworth manifesto?",
+     "gold": [
+      "Sir Robert Peel, 1st Baronet"
+     ],
+     "predicted": "Sir Robert Peel",
+     "hops": [
+      "Who Issued the Tamworth manifesto? -> Robert Peel",
+      "#1 >> father -> Sir Robert Peel, 1st Baronet"
+     ]
+    },
+    {
+     "question": "Bancroft's county borders what county?",
+     "gold": [
+      "Haliburton County"
+     ],
+     "predicted": "Renfrew County",
+     "hops": [
+      "Bancroft >> located in the administrative territorial entity -> Hastings County",
+      "#1 >> shares border with -> Haliburton County"
+     ]
+    },
+    {
+     "question": "What was the story of the character from The Bourne Ultimatum based on?",
+     "gold": [
+      "the novel of the same name by Robert Ludlum",
+      "Robert Ludlum"
+     ],
+     "predicted": "The Bourne Identity",
+     "hops": [
+      "The The Bourne Ultimatum has what character? -> Jason Bourne",
+      "What was the story of #1 based on? -> the novel of the same name by Robert Ludlum"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "Who is the spouse of the other president Jenkins Orphanage played for that wasn't Taft?",
+     "gold": [
+      "Edith Roosevelt"
+     ],
+     "predicted": "Edith Derby Williams",
+     "hops": [
+      "What other president did the Jenkins Orphanage play for other than Taft? -> Theodore Roosevelt",
+      "#1 >> spouse -> Edith Roosevelt"
+     ]
+    }
+   ]
+  }
+ },
+ "2b-vcr": {
+  "questions": 512,
+  "complete_evidence": 344,
+  "em_given_complete": 0.7122093023255814,
+  "wrong_with_complete_evidence": 99,
+  "share_of_all_questions": 0.193359375,
+  "categories": {
+   "wrong_span": {
+    "count": 42,
+    "share": 0.42424242424242425,
+    "mean_gold_f1": 0.06976568405139834
+   },
+   "near_miss": {
+    "count": 39,
+    "share": 0.3939393939393939,
+    "mean_gold_f1": 0.6904527766518717
+   },
+   "bridge_entity": {
+    "count": 10,
+    "share": 0.10101010101010101,
+    "mean_gold_f1": 0.175
+   },
+   "from_distractor": {
+    "count": 4,
+    "share": 0.04040404040404041,
+    "mean_gold_f1": 0.0
+   },
+   "not_in_corpus": {
+    "count": 4,
+    "share": 0.04040404040404041,
+    "mean_gold_f1": 0.225
+   }
+  },
+  "examples": {
+   "near_miss": [
+    {
+     "question": "The operator of Brent field announced it was in the process of doing what in April 2010?",
+     "gold": [
+      "trying to find a potential buyer for all of its operations in Finland",
+      "FIN",
+      "fi",
+      "Finland"
+     ],
+     "predicted": "trying to find a potential buyer",
+     "hops": [
+      "Brent field >> operator -> Shell",
+      "#1 announced it was in the process of doing what in April 2010? -> trying to find a potential buyer for all of its operations in Finland"
+     ]
+    },
+    {
+     "question": "What is the average winter daytime temperature in the region where Richmond is found, in the state where the Battle of Fredericksburg was fought?",
+     "gold": [
+      "upper 40s–lower 50s °F"
+     ],
+     "predicted": "upper 40s",
+     "hops": [
+      "what state was the battle of fredericksburg fought in -> Virginia",
+      "In which of #1 's regions is Richmond? -> Piedmont",
+      "What is the average winter daytime temperature in the #2 ? -> upper 40s–lower 50s °F"
+     ]
+    },
+    {
+     "question": "Who is the show Hawkgirl is from by?",
+     "gold": [
+      "Alfred Gough",
+      "Miles Millar"
+     ],
+     "predicted": "Alfred Gough and Miles Millar",
+     "hops": [
+      "What show is Hawkgirl from? -> Smallville",
+      "Who is #1 by? -> Alfred Gough"
+     ]
+    }
+   ],
+   "wrong_span": [
+    {
+     "question": "When did the crowning of the person under whom the Chapter House was built happen?",
+     "gold": [
+      "1216"
+     ],
+     "predicted": "17 May 1220",
+     "hops": [
+      "Under whom was the chapter house built? -> Henry III",
+      "When was #1 crowned? -> 1216"
+     ]
+    },
+    {
+     "question": "Who is the spouse of the person who voices Smokey the bear?",
+     "gold": [
+      "Katharine Ross"
+     ],
+     "predicted": "Farrah Fawcett",
+     "hops": [
+      "who does the voice of smokey the bear -> Sam Elliott",
+      "#1 >> spouse -> Katharine Ross"
+     ]
+    },
+    {
+     "question": "Who is the federal leader of John Lynch-Staunton's political party?",
+     "gold": [
+      "Andrew Scheer"
+     ],
+     "predicted": "Stephen Harper",
+     "hops": [
+      "John Lynch-Staunton >> member of political party -> Conservative Party of Canada",
+      "federal leader of #1 -> Andrew Scheer"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "Who was the father of the person who issued the Tamworth manifesto?",
+     "gold": [
+      "Sir Robert Peel, 1st Baronet"
+     ],
+     "predicted": "Sir Robert Peel",
+     "hops": [
+      "Who Issued the Tamworth manifesto? -> Robert Peel",
+      "#1 >> father -> Sir Robert Peel, 1st Baronet"
+     ]
+    },
+    {
+     "question": "Bancroft's county borders what county?",
+     "gold": [
+      "Haliburton County"
+     ],
+     "predicted": "Renfrew County",
+     "hops": [
+      "Bancroft >> located in the administrative territorial entity -> Hastings County",
+      "#1 >> shares border with -> Haliburton County"
+     ]
+    },
+    {
+     "question": "Who did the cast member of The Woman in the Window play in the Ten Commendments?",
+     "gold": [
+      "Dathan"
+     ],
+     "predicted": "Edward G. Robinson",
+     "hops": [
+      "Who is in The Woman in the Window as a cast member? -> Edward G. Robinson",
+      "who did #1 play in the ten commandments -> Dathan"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "Who's the head of the owner of ThinThread?",
+     "gold": [
+      "ADM Michael S. Rogers",
+      "Michael S. Rogers"
+     ],
+     "predicted": "Robert Valentine Tishman",
+     "hops": [
+      "ThinThread >> owned by -> National Security Agency",
+      "who is the head of #1 -> ADM Michael S. Rogers"
+     ]
+    },
+    {
+     "question": "Who is the sibling of the screenwriter of War of the Coprophages?",
+     "gold": [
+      "Glen Morgan"
+     ],
+     "predicted": "Rasmus",
+     "hops": [
+      "War of the Coprophages >> screenwriter -> Darin Morgan",
+      "#1 >> sibling -> Glen Morgan"
+     ]
+    },
+    {
+     "question": "When was the organization that manufactured BAe 146 abolished?",
+     "gold": [
+      "30 November 1999"
+     ],
+     "predicted": "1994",
+     "hops": [
+      "BAe 146 >> manufacturer -> British Aerospace",
+      "When was #1 abolished? -> 30 November 1999"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "When did the merchant of the city where the composer of Al gran sole carico d'amore takes place?",
+     "gold": [
+      "16th - century"
+     ],
+     "predicted": "1596-1599",
+     "hops": [
+      "Al gran sole carico d'amore >> composer -> Luigi Nono",
+      "#1 >> work location -> Venice",
+      "when did the merchant of #2 take place -> 16th - century"
+     ]
+    },
+    {
+     "question": "What was the story of the character from The Bourne Deception based on?",
+     "gold": [
+      "the novel of the same name by Robert Ludlum",
+      "Robert Ludlum"
+     ],
+     "predicted": "a screen story of The Bourne Sanction",
+     "hops": [
+      "The The Bourne Deception has what character? -> Jason Bourne",
+      "What was the story of #1 based on? -> the novel of the same name by Robert Ludlum"
+     ]
+    },
+    {
+     "question": "Where was the first woman appointed to the Supreme Court educated?",
+     "gold": [
+      "Stanford University",
+      "Stanford"
+     ],
+     "predicted": "University of California",
+     "hops": [
+      "who was the first woman appointed to the supreme court -> Sandra Day O'Connor",
+      "#1 >> educated at -> Stanford University"
+     ]
+    }
+   ]
+  }
+ },
+ "9b-sft": {
+  "questions": 512,
+  "complete_evidence": 341,
+  "em_given_complete": 0.8093841642228738,
+  "wrong_with_complete_evidence": 65,
+  "share_of_all_questions": 0.126953125,
+  "categories": {
+   "wrong_span": {
+    "count": 28,
+    "share": 0.4307692307692308,
+    "mean_gold_f1": 0.14206349206349206
+   },
+   "near_miss": {
+    "count": 27,
+    "share": 0.4153846153846154,
+    "mean_gold_f1": 0.6831292164625498
+   },
+   "bridge_entity": {
+    "count": 9,
+    "share": 0.13846153846153847,
+    "mean_gold_f1": 0.319047619047619
+   },
+   "from_distractor": {
+    "count": 1,
+    "share": 0.015384615384615385,
+    "mean_gold_f1": 0.0
+   }
+  },
+  "examples": {
+   "wrong_span": [
+    {
+     "question": "When did the crowning of the person under whom the Chapter House was built happen?",
+     "gold": [
+      "1216"
+     ],
+     "predicted": "17 May 1220",
+     "hops": [
+      "Under whom was the chapter house built? -> Henry III",
+      "When was #1 crowned? -> 1216"
+     ]
+    },
+    {
+     "question": "What is the direction of flow of the body of water by the city where Write This Down was formed?",
+     "gold": [
+      "rises in northern Minnesota and meanders slowly southwards",
+      "Minnesota"
+     ],
+     "predicted": "southwards",
+     "hops": [
+      "Write This Down >> location of formation -> Minneapolis",
+      "Which is the body of water by #1 ? -> Mississippi River",
+      "what is the direction of flow of #2 -> rises in northern Minnesota and meanders slowly southwards"
+     ]
+    },
+    {
+     "question": "What was an economic effect of the war during which Hayek started working on Abuse of Reason?",
+     "gold": [
+      "much of the European industrial infrastructure had been destroyed"
+     ],
+     "predicted": "the European economy had collapsed",
+     "hops": [
+      "When did Hayek start working on Abuse of Reason? -> During World War II",
+      "what was an economic effect of #1 -> much of the European industrial infrastructure had been destroyed"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "In The Godfather Part II, who did the producer of Mistress play?",
+     "gold": [
+      "Vito Corleone",
+      "Vito Andolini",
+      "Vito Andolini Corleone"
+     ],
+     "predicted": "Robert De Niro",
+     "hops": [
+      "Mistress >> producer -> Robert De Niro",
+      "who did #1 play in godfather 2 -> Vito Corleone"
+     ]
+    },
+    {
+     "question": "Bancroft's county borders what county?",
+     "gold": [
+      "Haliburton County"
+     ],
+     "predicted": "Renfrew County",
+     "hops": [
+      "Bancroft >> located in the administrative territorial entity -> Hastings County",
+      "#1 >> shares border with -> Haliburton County"
+     ]
+    },
+    {
+     "question": "In The Godfather, who does the producer of Mistress play?",
+     "gold": [
+      "Vito Corleone",
+      "Vito Andolini",
+      "Vito Andolini Corleone"
+     ],
+     "predicted": "Robert De Niro",
+     "hops": [
+      "Mistress >> producer -> Robert De Niro",
+      "who does #1 play in the godfather -> Vito Corleone"
+     ]
+    }
+   ],
+   "near_miss": [
+    {
+     "question": "What is the average winter daytime temperature in the region where Richmond is found, in the state where the Battle of Fredericksburg was fought?",
+     "gold": [
+      "upper 40s–lower 50s °F"
+     ],
+     "predicted": "upper 40s–lower 50s °F (8–12 °C)",
+     "hops": [
+      "what state was the battle of fredericksburg fought in -> Virginia",
+      "In which of #1 's regions is Richmond? -> Piedmont",
+      "What is the average winter daytime temperature in the #2 ? -> upper 40s–lower 50s °F"
+     ]
+    },
+    {
+     "question": "Who is the show Hawkgirl is from by?",
+     "gold": [
+      "Alfred Gough",
+      "Miles Millar"
+     ],
+     "predicted": "Alfred Gough and Miles Millar",
+     "hops": [
+      "What show is Hawkgirl from? -> Smallville",
+      "Who is #1 by? -> Alfred Gough"
+     ]
+    },
+    {
+     "question": "What was the 2017 population of the country where Bedari was made?",
+     "gold": [
+      "207.77 million people"
+     ],
+     "predicted": "207.77 million",
+     "hops": [
+      "What is the country Bedari is from? -> Pakistan",
+      "what is the current population of #1 2017 -> 207.77 million people"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "In the movie A League of their Own, who played the husband of the person who also played Thelma in the movie Thelma and Louise?",
+     "gold": [
+      "Bill Pullman"
+     ],
+     "predicted": "Stockard Channing",
+     "hops": [
+      "who played thelma in the movie thelma and louise -> Geena Davis",
+      "#1 husband in league of their own -> Bill Pullman"
+     ]
+    }
+   ]
+  }
+ },
+ "9b-grpo": {
+  "questions": 512,
+  "complete_evidence": 396,
+  "em_given_complete": 0.7878787878787878,
+  "wrong_with_complete_evidence": 84,
+  "share_of_all_questions": 0.1640625,
+  "categories": {
+   "near_miss": {
+    "count": 37,
+    "share": 0.44047619047619047,
+    "mean_gold_f1": 0.7059205676852736
+   },
+   "wrong_span": {
+    "count": 32,
+    "share": 0.38095238095238093,
+    "mean_gold_f1": 0.10179738562091503
+   },
+   "bridge_entity": {
+    "count": 11,
+    "share": 0.13095238095238096,
+    "mean_gold_f1": 0.1515151515151515
+   },
+   "not_in_corpus": {
+    "count": 4,
+    "share": 0.047619047619047616,
+    "mean_gold_f1": 0.11538461538461539
+   }
+  },
+  "examples": {
+   "wrong_span": [
+    {
+     "question": "When did the crowning of the person under whom the Chapter House was built happen?",
+     "gold": [
+      "1216"
+     ],
+     "predicted": "17 May 1220",
+     "hops": [
+      "Under whom was the chapter house built? -> Henry III",
+      "When was #1 crowned? -> 1216"
+     ]
+    },
+    {
+     "question": "What is the direction of flow of the body of water by the home of the juicy lucy?",
+     "gold": [
+      "rises in northern Minnesota and meanders slowly southwards",
+      "Minnesota"
+     ],
+     "predicted": "southwards",
+     "hops": [
+      "where is the home of the juicy lucy -> Minneapolis",
+      "Which is the body of water by #1 ? -> Mississippi River",
+      "what is the direction of flow of #2 -> rises in northern Minnesota and meanders slowly southwards"
+     ]
+    },
+    {
+     "question": "What is the direction of flow of the body of water by the city where Write This Down was formed?",
+     "gold": [
+      "rises in northern Minnesota and meanders slowly southwards",
+      "Minnesota"
+     ],
+     "predicted": "southwards",
+     "hops": [
+      "Write This Down >> location of formation -> Minneapolis",
+      "Which is the body of water by #1 ? -> Mississippi River",
+      "what is the direction of flow of #2 -> rises in northern Minnesota and meanders slowly southwards"
+     ]
+    }
+   ],
+   "near_miss": [
+    {
+     "question": "What was the cast member of The Bad Man nominated for?",
+     "gold": [
+      "Academy Award for Best Supporting Actor"
+     ],
+     "predicted": "Academy Award",
+     "hops": [
+      "The Bad Man >> cast member -> Walter Huston",
+      "What was #1 nominated for? -> Academy Award for Best Supporting Actor"
+     ]
+    },
+    {
+     "question": "When did the team that won the AL East in 2017 last play in the series of games that the MLB MVP award is given after?",
+     "gold": [
+      "the 2009 season"
+     ],
+     "predicted": "2009",
+     "hops": [
+      "who won the american league east in 2017 -> The Yankees",
+      "when do they give out the mlb mvp award -> after the World Series",
+      "when did the #1 last play in #2 -> the 2009 season"
+     ]
+    },
+    {
+     "question": "Who is the show Hawkgirl is from by?",
+     "gold": [
+      "Alfred Gough",
+      "Miles Millar"
+     ],
+     "predicted": "Alfred Gough and Miles Millar",
+     "hops": [
+      "What show is Hawkgirl from? -> Smallville",
+      "Who is #1 by? -> Alfred Gough"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "In The Godfather Part II, who did the producer of Mistress play?",
+     "gold": [
+      "Vito Corleone",
+      "Vito Andolini",
+      "Vito Andolini Corleone"
+     ],
+     "predicted": "Robert De Niro",
+     "hops": [
+      "Mistress >> producer -> Robert De Niro",
+      "who did #1 play in godfather 2 -> Vito Corleone"
+     ]
+    },
+    {
+     "question": "Bancroft's county borders what county?",
+     "gold": [
+      "Haliburton County"
+     ],
+     "predicted": "Renfrew County",
+     "hops": [
+      "Bancroft >> located in the administrative territorial entity -> Hastings County",
+      "#1 >> shares border with -> Haliburton County"
+     ]
+    },
+    {
+     "question": "Which is the body of water by the village which borders Long Ditton?",
+     "gold": [
+      "River Thames"
+     ],
+     "predicted": "Thames",
+     "hops": [
+      "Long Ditton >> shares border with -> Thames Ditton",
+      "Which is the body of water by #1 ? -> River Thames"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "When did the merchant of the city where the composer of Al gran sole carico d'amore takes place?",
+     "gold": [
+      "16th - century"
+     ],
+     "predicted": "1596-1599",
+     "hops": [
+      "Al gran sole carico d'amore >> composer -> Luigi Nono",
+      "#1 >> work location -> Venice",
+      "when did the merchant of #2 take place -> 16th - century"
+     ]
+    },
+    {
+     "question": "What mountains can you see from Portland, in the state containing the county where Lorenz Park is located?",
+     "gold": [
+      "Tualatin Mountains"
+     ],
+     "predicted": "Mt. Hood, Mt. St. Helens, Mt. Adams, Mt. Rainier",
+     "hops": [
+      "Lorenz Park >> located in the administrative territorial entity -> Columbia County",
+      "#1 >> located in the administrative territorial entity -> Oregon",
+      "what mountain can you see from portland #2 -> Tualatin Mountains"
+     ]
+    },
+    {
+     "question": "Who is the chief judge of Fred Aghogho Brume's birthplace?",
+     "gold": [
+      "Honorable Justice Abiodun Smith"
+     ],
+     "predicted": "Rosaline Bozimo",
+     "hops": [
+      "Fred Aghogho Brume >> place of birth -> Delta State",
+      "who is the chief judge of #1 -> Honorable Justice Abiodun Smith"
+     ]
+    }
+   ]
+  }
+ },
+ "9b-vcr": {
+  "questions": 512,
+  "complete_evidence": 377,
+  "em_given_complete": 0.7904509283819628,
+  "wrong_with_complete_evidence": 79,
+  "share_of_all_questions": 0.154296875,
+  "categories": {
+   "near_miss": {
+    "count": 37,
+    "share": 0.46835443037974683,
+    "mean_gold_f1": 0.6896413602295954
+   },
+   "wrong_span": {
+    "count": 31,
+    "share": 0.3924050632911392,
+    "mean_gold_f1": 0.09093701996927804
+   },
+   "bridge_entity": {
+    "count": 6,
+    "share": 0.0759493670886076,
+    "mean_gold_f1": 0.16666666666666666
+   },
+   "not_in_corpus": {
+    "count": 5,
+    "share": 0.06329113924050633,
+    "mean_gold_f1": 0.09230769230769231
+   }
+  },
+  "examples": {
+   "near_miss": [
+    {
+     "question": "The operator of Brent field announced it was in the process of doing what in April 2010?",
+     "gold": [
+      "trying to find a potential buyer for all of its operations in Finland",
+      "FIN",
+      "fi",
+      "Finland"
+     ],
+     "predicted": "trying to find a potential buyer",
+     "hops": [
+      "Brent field >> operator -> Shell",
+      "#1 announced it was in the process of doing what in April 2010? -> trying to find a potential buyer for all of its operations in Finland"
+     ]
+    },
+    {
+     "question": "When does the show of the cast member of Politically Incorrect start again in 2018?",
+     "gold": [
+      "January 19, 2018"
+     ],
+     "predicted": "January 19",
+     "hops": [
+      "Politically Incorrect >> cast member -> Bill Maher",
+      "when does real time with #1 start again in 2018 -> January 19, 2018"
+     ]
+    },
+    {
+     "question": "Who is the show Hawkgirl is from by?",
+     "gold": [
+      "Alfred Gough",
+      "Miles Millar"
+     ],
+     "predicted": "Alfred Gough and Miles Millar",
+     "hops": [
+      "What show is Hawkgirl from? -> Smallville",
+      "Who is #1 by? -> Alfred Gough"
+     ]
+    }
+   ],
+   "wrong_span": [
+    {
+     "question": "When did the crowning of the person under whom the Chapter House was built happen?",
+     "gold": [
+      "1216"
+     ],
+     "predicted": "17 May 1220",
+     "hops": [
+      "Under whom was the chapter house built? -> Henry III",
+      "When was #1 crowned? -> 1216"
+     ]
+    },
+    {
+     "question": "What is the direction of flow of the body of water by the city where Write This Down was formed?",
+     "gold": [
+      "rises in northern Minnesota and meanders slowly southwards",
+      "Minnesota"
+     ],
+     "predicted": "southwards",
+     "hops": [
+      "Write This Down >> location of formation -> Minneapolis",
+      "Which is the body of water by #1 ? -> Mississippi River",
+      "what is the direction of flow of #2 -> rises in northern Minnesota and meanders slowly southwards"
+     ]
+    },
+    {
+     "question": "What was an economic effect of the war during which Hayek started working on Abuse of Reason?",
+     "gold": [
+      "much of the European industrial infrastructure had been destroyed"
+     ],
+     "predicted": "the European economy had collapsed",
+     "hops": [
+      "When did Hayek start working on Abuse of Reason? -> During World War II",
+      "what was an economic effect of #1 -> much of the European industrial infrastructure had been destroyed"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "In The Godfather Part II, who did the producer of Mistress play?",
+     "gold": [
+      "Vito Corleone",
+      "Vito Andolini",
+      "Vito Andolini Corleone"
+     ],
+     "predicted": "Robert De Niro",
+     "hops": [
+      "Mistress >> producer -> Robert De Niro",
+      "who did #1 play in godfather 2 -> Vito Corleone"
+     ]
+    },
+    {
+     "question": "Bancroft's county borders what county?",
+     "gold": [
+      "Haliburton County"
+     ],
+     "predicted": "Renfrew County",
+     "hops": [
+      "Bancroft >> located in the administrative territorial entity -> Hastings County",
+      "#1 >> shares border with -> Haliburton County"
+     ]
+    },
+    {
+     "question": "In The Godfather, who does the producer of Mistress play?",
+     "gold": [
+      "Vito Corleone",
+      "Vito Andolini",
+      "Vito Andolini Corleone"
+     ],
+     "predicted": "Robert De Niro",
+     "hops": [
+      "Mistress >> producer -> Robert De Niro",
+      "who does #1 play in the godfather -> Vito Corleone"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "When did the merchant of the city where the composer of Al gran sole carico d'amore takes place?",
+     "gold": [
+      "16th - century"
+     ],
+     "predicted": "1596–1599",
+     "hops": [
+      "Al gran sole carico d'amore >> composer -> Luigi Nono",
+      "#1 >> work location -> Venice",
+      "when did the merchant of #2 take place -> 16th - century"
+     ]
+    },
+    {
+     "question": "Who is the chief judge of Fred Aghogho Brume's birthplace?",
+     "gold": [
+      "Honorable Justice Abiodun Smith"
+     ],
+     "predicted": "Rosaline Bozimo",
+     "hops": [
+      "Fred Aghogho Brume >> place of birth -> Delta State",
+      "who is the chief judge of #1 -> Honorable Justice Abiodun Smith"
+     ]
+    },
+    {
+     "question": "How were the people that the Somali Muslim Ajuran Empire made coins to proclaim independence from, expelled from the country where Mohinga is eaten?",
+     "gold": [
+      "The dynasty regrouped and defeated the Portuguese"
+     ],
+     "predicted": "by force of arms",
+     "hops": [
+      "New coins were a proclamation of independence by the Somali Muslim Ajuran Empire from whom? -> the Portuguese",
+      "Which was the country for Mohinga? -> Myanmar",
+      "How were the #1 expelled from #2 ? -> The dynasty regrouped and defeated the Portuguese"
+     ]
+    }
+   ]
+  }
+ },
+ "9b-vcr_mul": {
+  "questions": 512,
+  "complete_evidence": 401,
+  "em_given_complete": 0.7955112219451371,
+  "wrong_with_complete_evidence": 82,
+  "share_of_all_questions": 0.16015625,
+  "categories": {
+   "near_miss": {
+    "count": 38,
+    "share": 0.4634146341463415,
+    "mean_gold_f1": 0.713241207672526
+   },
+   "wrong_span": {
+    "count": 32,
+    "share": 0.3902439024390244,
+    "mean_gold_f1": 0.09138071895424837
+   },
+   "bridge_entity": {
+    "count": 7,
+    "share": 0.08536585365853659,
+    "mean_gold_f1": 0.11904761904761905
+   },
+   "from_distractor": {
+    "count": 2,
+    "share": 0.024390243902439025,
+    "mean_gold_f1": 0.14285714285714288
+   },
+   "not_in_corpus": {
+    "count": 2,
+    "share": 0.024390243902439025,
+    "mean_gold_f1": 0.0
+   },
+   "insufficient": {
+    "count": 1,
+    "share": 0.012195121951219513,
+    "mean_gold_f1": 0.0
+   }
+  },
+  "examples": {
+   "wrong_span": [
+    {
+     "question": "When was Q1 who was impeached in england for acts committed as governor general of india impeached?",
+     "gold": [
+      "1786"
+     ],
+     "predicted": "1788 and 1795",
+     "hops": [
+      "who was impeached in england for acts committed as governor general of india -> Warren Hastings",
+      "When was #1 impeached? -> 1786"
+     ]
+    },
+    {
+     "question": "When did the crowning of the person under whom the Chapter House was built happen?",
+     "gold": [
+      "1216"
+     ],
+     "predicted": "17 May 1220",
+     "hops": [
+      "Under whom was the chapter house built? -> Henry III",
+      "When was #1 crowned? -> 1216"
+     ]
+    },
+    {
+     "question": "What is the direction of flow of the body of water by the home of the juicy lucy?",
+     "gold": [
+      "rises in northern Minnesota and meanders slowly southwards",
+      "Minnesota"
+     ],
+     "predicted": "southwards",
+     "hops": [
+      "where is the home of the juicy lucy -> Minneapolis",
+      "Which is the body of water by #1 ? -> Mississippi River",
+      "what is the direction of flow of #2 -> rises in northern Minnesota and meanders slowly southwards"
+     ]
+    }
+   ],
+   "near_miss": [
+    {
+     "question": "Who is the show Hawkgirl is from by?",
+     "gold": [
+      "Alfred Gough",
+      "Miles Millar"
+     ],
+     "predicted": "Alfred Gough and Miles Millar",
+     "hops": [
+      "What show is Hawkgirl from? -> Smallville",
+      "Who is #1 by? -> Alfred Gough"
+     ]
+    },
+    {
+     "question": "What was the 2017 population of the country where Bedari was made?",
+     "gold": [
+      "207.77 million people"
+     ],
+     "predicted": "207.77 million",
+     "hops": [
+      "What is the country Bedari is from? -> Pakistan",
+      "what is the current population of #1 2017 -> 207.77 million people"
+     ]
+    },
+    {
+     "question": "Who followed the father of Menucha Rochel Slonim?",
+     "gold": [
+      "Menachem Mendel Schneersohn"
+     ],
+     "predicted": "Rabbi Menachem Mendel Schneersohn",
+     "hops": [
+      "Menucha Rochel Slonim >> father -> Dovber Schneuri",
+      "#1 >> followed by -> Menachem Mendel Schneersohn"
+     ]
+    }
+   ],
+   "from_distractor": [
+    {
+     "question": "Who is the father of the father of Anwer Ali?",
+     "gold": [
+      "Ahmad Shah Bahadur"
+     ],
+     "predicted": "Sirdar Ikbal Ali Shah",
+     "hops": [
+      "Anwer Ali >> father -> Muhammad Shah",
+      "#1 >> child -> Ahmad Shah Bahadur"
+     ]
+    },
+    {
+     "question": "What is Mohamed Atta's car, manufactured by the company that includes Datsun, an instance of?",
+     "gold": [
+      "Nissan Altima",
+      "ALTIMA"
+     ],
+     "predicted": "small car",
+     "hops": [
+      "What company is Datsun part of? -> Nissan",
+      "Mohamed Atta's #1 >> instance of -> Nissan Altima"
+     ]
+    }
+   ],
+   "insufficient": [
+    {
+     "question": "Of which river is the river Kichi Sipi Bridge crosses a tributary?",
+     "gold": [
+      "Hudson's Bay",
+      "Hudson Bay",
+      "HB"
+     ],
+     "predicted": "insufficient evidence",
+     "hops": [
+      "Kichi Sipi Bridge >> crosses -> Nelson River",
+      "What is #1 a tributary of? -> Hudson's Bay"
+     ]
+    }
+   ],
+   "bridge_entity": [
+    {
+     "question": "In The Godfather, who does the producer of Mistress play?",
+     "gold": [
+      "Vito Corleone",
+      "Vito Andolini",
+      "Vito Andolini Corleone"
+     ],
+     "predicted": "Robert De Niro",
+     "hops": [
+      "Mistress >> producer -> Robert De Niro",
+      "who does #1 play in the godfather -> Vito Corleone"
+     ]
+    },
+    {
+     "question": "What forced the departure from the country responsible for Phoe Pyonn Cho of the people once defied by new coinage?",
+     "gold": [
+      "The dynasty regrouped and defeated the Portuguese"
+     ],
+     "predicted": "Portuguese",
+     "hops": [
+      "New coins were a proclamation of independence by the Somali Muslim Ajuran Empire from whom? -> the Portuguese",
+      "Which was the country for Phoe Pyonn Cho? -> Myanmar",
+      "How were the #1 expelled from #2 ? -> The dynasty regrouped and defeated the Portuguese"
+     ]
+    },
+    {
+     "question": "Who was the person who acquired the parent company of the music service Beyonce owns part of talking about in the song Cry?",
+     "gold": [
+      "three different relationships he had in the past"
+     ],
+     "predicted": "Jay Z",
+     "hops": [
+      "Who acquired the parent company of the music service Beyoncé owns part of? -> Jay Z",
+      "who was #1 talking about in song cry -> three different relationships he had in the past"
+     ]
+    }
+   ],
+   "not_in_corpus": [
+    {
+     "question": "What mountains can you see from Portland, in the state containing the county where Lorenz Park is located?",
+     "gold": [
+      "Tualatin Mountains"
+     ],
+     "predicted": "Mt. Hood, Mt. St. Helens, Mt. Adams, Mt. Rainier",
+     "hops": [
+      "Lorenz Park >> located in the administrative territorial entity -> Columbia County",
+      "#1 >> located in the administrative territorial entity -> Oregon",
+      "what mountain can you see from portland #2 -> Tualatin Mountains"
+     ]
+    },
+    {
+     "question": "What mountains can you see from Portland, in the state containing the county where Cole's creek is located?",
+     "gold": [
+      "Tualatin Mountains"
+     ],
+     "predicted": "Mt. Hood, Mt. St. Helens, Mt. Adams, Mt. Rainier",
+     "hops": [
+      "Coles Creek >> located in the administrative territorial entity -> Columbia County",
+      "#1 >> located in the administrative territorial entity -> Oregon",
+      "what mountain can you see from portland #2 -> Tualatin Mountains"
+     ]
+    }
+   ]
+  }
+ },
+ "scoring_sensitivity": {
+  "rates": {
+   "2b-grpo": {
+    "em": 0.5625,
+    "contained": 0.6796875,
+    "form_mismatch": 0.1171875
+   },
+   "2b-igpo": {
+    "em": 0.525390625,
+    "contained": 0.623046875,
+    "form_mismatch": 0.09765625
+   },
+   "2b-vcr": {
+    "em": 0.568359375,
+    "contained": 0.671875,
+    "form_mismatch": 0.103515625
+   },
+   "9b-sft": {
+    "em": 0.625,
+    "contained": 0.728515625,
+    "form_mismatch": 0.103515625
+   },
+   "9b-grpo": {
+    "em": 0.669921875,
+    "contained": 0.77734375,
+    "form_mismatch": 0.107421875
+   },
+   "9b-vcr": {
+    "em": 0.658203125,
+    "contained": 0.767578125,
+    "form_mismatch": 0.109375
+   },
+   "9b-vcr_mul": {
+    "em": 0.689453125,
+    "contained": 0.802734375,
+    "form_mismatch": 0.11328125
+   }
+  },
+  "paired": {
+   "9b-vcr_mul_minus_9b-grpo": {
+    "em": [
+     0.01953125,
+     -0.013671875,
+     0.0546875
+    ],
+    "contained": [
+     0.025390625,
+     -0.005859375,
+     0.05859375
+    ]
+   },
+   "9b-vcr_minus_9b-grpo": {
+    "em": [
+     -0.01171875,
+     -0.04296875,
+     0.01953125
+    ],
+    "contained": [
+     -0.009765625,
+     -0.041015625,
+     0.0234375
+    ]
+   },
+   "2b-vcr_minus_2b-grpo": {
+    "em": [
+     0.005859375,
+     -0.029296875,
+     0.04296875
+    ],
+    "contained": [
+     -0.0078125,
+     -0.04296875,
+     0.02734375
+    ]
+   },
+   "2b-vcr_minus_2b-igpo": {
+    "em": [
+     0.04296875,
+     0.001953125,
+     0.083984375
+    ],
+    "contained": [
+     0.048828125,
+     0.009765625,
+     0.08984375
+    ]
+   }
+  },
+  "criterion": "contained: EM, or a gold alias and the answer contain one another after normalisation"
+ },
+ "note": "Surface-form classification on normalised text, not entailment. Complete evidence means every annotated support document was cited; the subsets differ between models, so counts are not paired."
+}
