@@ -2,7 +2,11 @@
 
 Starts from sft_err, whose policy writes '"<title>" answers step k (...): <answer>.' or '... does not answer ...'
 before tool calls. Each claim is verified against the training question's gold decomposition (claims.py).
-Token advantage on assistant turn t:  A_GRPO + lambda * c_t,  c_t in [-1, 1] (0 for turns without claims).
+Token advantage on assistant turn t, with c_t in [-1, 1] (0 for turns without claims):
+  vcr      (additive):        A_GRPO + lambda * c_t
+  vcr_mul  (multiplicative):  A_GRPO * clip(exp(sign(A_GRPO) * c_t), 0.8, 1.2)
+The multiplicative form never flips the sign of A_GRPO and adds nothing when a group has zero outcome
+variance (A_GRPO = 0); the additive form can do both.
 Unlike likelihood-based process rewards (IGPO/TRACE), c_t is a checkable statement about the trajectory itself.
 Gold decomposition is training-time privileged information; evaluation never uses it.
 """
@@ -18,6 +22,11 @@ from evisearch.training.claims import turn_rewards
 
 class AgentTrainer(ReferenceTrainer):
     vcr_lambda = 0.5
+    mul_clip = (0.8, 1.2)
+
+    @property
+    def multiplicative(self):
+        return getattr(self, 'algorithm', 'vcr') == 'vcr_mul'
     _defer_save = False
 
     def score_completions(self, completions, environments, log_metric, **kwargs):
@@ -52,7 +61,9 @@ class AgentTrainer(ReferenceTrainer):
             rewards = turn_rewards(task, completion)
             assert len(rewards) == len(spans), 'Assistant turns must align with native tool mask spans'
             for (start, end), c in zip(spans, rewards, strict=True):
-                if c:
+                if c and self.multiplicative:
+                    token_adv[i, start:end] *= (sequence[i].sign() * c).exp().clamp(*self.mul_clip)
+                elif c:
                     token_adv[i, start:end] += self.vcr_lambda * c
             record['claim_turn_rewards'] = rewards
             flat += [c for c in rewards if c]

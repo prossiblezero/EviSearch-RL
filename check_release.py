@@ -71,6 +71,16 @@ def check_vcr():
     assert result['advantages'].tolist() == [[0.5, 0.5, 0.0, -0.5, -0.5]]
     assert normalize_group([0, 0, 0, 0]) == [0, 0, 0, 0]
 
+    # Multiplicative VCR: bounded rescaling that keeps the sign of A_GRPO and adds nothing when A_GRPO = 0.
+    trainer.algorithm = 'vcr_mul'
+    for sequence, expected in ((0.5, [0.6, 0.6, 0.0, 0.4, 0.4]), (-0.5, [-0.4, -0.4, 0.0, -0.6, -0.6]),
+                               (0.0, [0.0, 0.0, 0.0, 0.0, 0.0])):
+        result = dict(completion_mask=torch.ones(1, 5), tool_mask=torch.tensor([[1, 1, 0, 1, 1]]),
+                      advantages=torch.tensor([sequence]))
+        trainer._apply_vcr(result)
+        assert torch.allclose(result['advantages'], torch.tensor([expected])), (sequence, result['advantages'])
+    del trainer.algorithm
+
     # Use the actual installed TRL loss, so a mask regression changes gradients.
     for advantages in (torch.tensor([1., -1.]), torch.tensor([[1., 0., -.5], [-1., 0., 0.]])):
         values = torch.tensor([[.3, 7., -.1], [.1, -8., .2]], requires_grad=True)
@@ -229,6 +239,10 @@ def main():
         else:
             raise AssertionError(invalid)
     assert run_name('vcr-42') == 'vcr-42'
+    from evisearch import train
+    assert train.specification('vcr_mul')['name'] == 'vcr_mul-42', 'Default 2B run names must not change'
+    spec = train.specification('vcr_mul', base='Qwen3.5-9B', sft='sft-9b')
+    assert spec['name'] == 'vcr_mul-Qwen3.5-9B-42' and spec['initial'] == spec['reference'] == str(train.RUNS / 'sft-9b/final')
     check_frozen_data()
     check_vcr()
     with TemporaryDirectory(dir=ROOT / 'tmp') as tmp:

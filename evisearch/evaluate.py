@@ -8,6 +8,8 @@ from resources import ROOT, admit, lock_run, memory_record, read_jsonl, setup_pa
 from evisearch.evaluation.rollout import episode, aggregate, MAX_TRAJECTORY, MAX_TURN
 from evisearch.artifacts import DATA, PROTOCOL as OUT, RUNS, CODE, sha, run_name
 
+DEFAULT_BASE = 'Qwen3.5-2B'
+
 def model_dir(name):
     return RUNS / name
 
@@ -25,6 +27,7 @@ def main():
     parser.add_argument('--modes', nargs='+', choices=('agent', 'static'), default=['agent'])
     parser.add_argument('--gpu', type=int, default=0)
     parser.add_argument('--cap-gib', type=float, default=8)
+    parser.add_argument('--base', default=DEFAULT_BASE, type=run_name, help='base model under models/')
     args = parser.parse_args()
     setup_paths()
     checks = json.loads((OUT / 'checks.json').read_text())
@@ -34,15 +37,18 @@ def main():
     if adapter:
         summary = json.loads((adapter.parent / 'summary.json').read_text())
         assert sha(adapter / 'adapter_model.safetensors') == summary['adapter_sha256']
+        trained_on = summary.get('spec', {}).get('base_model') or summary.get('model') or DEFAULT_BASE
+        assert trained_on == args.base, f'Adapter was trained on {trained_on}, not {args.base}'
     tasks_path = DATA / f'{args.split}_tasks.jsonl'
     tasks = read_jsonl(tasks_path)
     expected_hash = (json.loads((OUT / 'dev2_manifest.json').read_text())['dataset_sha256']
                      if args.split == 'dev2' else json.loads((DATA / 'manifest.json').read_text())['hashes'][tasks_path.name])
     assert sha(tasks_path) == expected_hash
-    out = RUNS / 'eval' / args.model / args.split
+    name = f'base-{args.base}' if args.model == 'base' and args.base != DEFAULT_BASE else args.model
+    out = RUNS / 'eval' / name / args.split
     out.mkdir(parents=True, exist_ok=True)
     lock = lock_run(out)
-    config = dict(model=args.model, adapter_sha256=sha(adapter / 'adapter_model.safetensors') if adapter else 'base',
+    config = dict(model=args.model, base_model=args.base, adapter_sha256=sha(adapter / 'adapter_model.safetensors') if adapter else 'base',
         dataset_sha256=expected_hash, split=args.split, modes=args.modes, decoding='greedy',
         max_trajectory=MAX_TRAJECTORY, max_turn_tokens=MAX_TURN, expected_tasks=len(tasks),
         source_sha256=protocol_hash(), wrapper_sha256=sha(Path(__file__)),
@@ -61,6 +67,8 @@ def main():
     expected = {(mode, task['id']) for mode in args.modes for task in tasks}
     assert len(done) == len(rows) and done <= expected
     admit(args.gpu, args.cap_gib)
+    import evisearch.model
+    evisearch.model.MODEL = ROOT / 'models' / args.base
     from evisearch.model import load_model, tokenizer
     model, tok = load_model(adapter, trainable=False), tokenizer()
     model.eval()

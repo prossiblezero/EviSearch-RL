@@ -83,7 +83,7 @@ python -m evisearch.train igpo --gpu 0 --cap-gib 8
 python -m evisearch.train vcr --gpu 0 --cap-gib 8
 ```
 
-SFT 默认读取冻结的相关性推理数据，写 `runs/release/sft`。三个 RL 入口都从它的 `final/` 开始，并冻结相同 reference。probe 的目录与正式运行分开，probe 结果不是正式实验。
+SFT 默认读取冻结的相关性推理数据，写 `runs/release/sft`。各 RL 分支（grpo、igpo、vcr、vcr_mul）都从它的 `final/` 开始，并冻结相同 reference。probe 的目录与正式运行分开，probe 结果不是正式实验。
 
 如果使用新生成的增强数据，需要显式指定：
 
@@ -91,7 +91,20 @@ SFT 默认读取冻结的相关性推理数据，写 `runs/release/sft`。三个
 python -m evisearch.sft --data /data3/dzh/MedSearchRL/data/release-prepared/sft_err.jsonl --gpu 0 --cap-gib 8
 ```
 
-这与默认命令是**替代选择**，不要在已存在的同名 SFT 运行上混用数据。已有 run manifest 会拒绝不一致的恢复。SFT 示例仅训练主线 2B 模型；更大模型不是此发布版复现主线的必要步骤。
+这与默认命令是**替代选择**，不要在已存在的同名 SFT 运行上混用数据。已有 run manifest 会拒绝不一致的恢复。
+
+乘性 VCR 与 9B 基座用同一套入口。`--base` 选择 `models/` 下的基座，`--sft` 指定在该基座上训练的 SFT 运行；初始与冻结 reference 都取它的 `final/`。9B 需要约 25 GiB 显存上限，加 6 GiB 余量后只能独占一张 32 GB 卡：
+
+```bash
+python -m evisearch.train vcr_mul --gpu 0 --cap-gib 8                    # 2B，乘性 VCR
+
+python -m evisearch.sft --model Qwen3.5-9B --name sft-9b --gpu 0 --cap-gib 25
+for arm in grpo vcr vcr_mul; do
+  python -m evisearch.train "$arm" --base Qwen3.5-9B --sft sft-9b --gpu 0 --cap-gib 25
+done
+```
+
+非默认基座的运行名带上基座名，例如 `vcr_mul-Qwen3.5-9B-42`，不会与 2B 运行混在一起。
 
 ## 7. 恢复与新旧运行隔离
 
@@ -119,6 +132,16 @@ for model in base sft grpo-42 igpo-42 vcr-42; do
   done
 done
 python -m evisearch.evaluation.compare vcr-42 grpo-42 igpo-42
+```
+
+9B 评测同样需要 `--base`。评测入口会核对适配器训练时的基座，与 `--base` 不一致直接失败；未微调 9B 写到 `eval/base-Qwen3.5-9B`：
+
+```bash
+for model in base sft-9b grpo-Qwen3.5-9B-42 vcr-Qwen3.5-9B-42 vcr_mul-Qwen3.5-9B-42; do
+  for split in dev2 test; do
+    python -m evisearch.evaluate --model "$model" --split "$split" --modes agent --base Qwen3.5-9B --gpu 0 --cap-gib 21
+  done
+done
 ```
 
 Base 与 SFT 的静态材料对照应在第一次评测时共同声明 `--modes agent static`。已存在的 config 不允许变更模式；不要直接覆盖它来补跑不同协议。

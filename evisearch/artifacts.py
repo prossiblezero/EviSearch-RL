@@ -30,6 +30,28 @@ RECORDED = {
     'vcr': ROOT / 'runs/v5/eval/vcr-42',
 }
 
+# Qwen3.5-9B: same rationale-SFT data, RL tasks, budgets and evaluation protocol as the 2B runs.
+# Evaluation configs of these runs do not record the base model; adapted runs are tied to 9B through the
+# adapter hash in their training summary. The unadapted 9B row is identified only by its directory.
+RECORDED_9B = {
+    'base': ROOT / 'runs/v5/9b/eval/base',
+    'rationale-sft': ROOT / 'runs/v5/9b/eval/sft9b_err',
+    'grpo': ROOT / 'runs/v5/9b/eval/grpo_err9b-42',
+    'vcr': ROOT / 'runs/v5/9b/eval/vcr9b-42',
+    'vcr_mul': ROOT / 'runs/v5/9b/eval/vcr_mul9b-42',
+}
+TRAINED_9B = {
+    'rationale-sft': ROOT / 'runs/v5/sft9b_err',
+    'grpo': ROOT / 'runs/v5/grpo_err9b-42',
+    'vcr': ROOT / 'runs/v5/vcr9b-42',
+    'vcr_mul': ROOT / 'runs/v5/vcr_mul9b-42',
+}
+# 2B training runs, used only for the zero-variance-group audit.
+TRAINED_2B = {
+    'grpo': ROOT / 'runs/v5/grpo_err-42',
+    'vcr': ROOT / 'runs/v5/vcr-42',
+}
+
 
 def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()

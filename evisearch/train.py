@@ -1,4 +1,8 @@
-"""Same-SFT GRPO / IGPO / VCR with native TRL tools and frozen-reference audits."""
+"""Same-SFT GRPO / IGPO / VCR (additive or multiplicative) with native TRL tools and frozen-reference audits.
+
+Default base is Qwen3.5-2B starting from runs/release/sft. For another base, pass both --base and the SFT run
+trained on that base, e.g. --base Qwen3.5-9B --sft sft-9b --cap-gib 25.
+"""
 import argparse
 import hashlib
 import json
@@ -7,16 +11,18 @@ from pathlib import Path
 import time
 
 from resources import ROOT, admit, lock_run, memory_record, read_jsonl, setup_paths
-from evisearch.artifacts import PROTOCOL, DATA, RUNS, sha, CODE, source_files
+from evisearch.artifacts import PROTOCOL, DATA, RUNS, sha, CODE, run_name, source_files
 
 setup_paths()
-ARMS = ('grpo', 'igpo', 'vcr')
+ARMS = ('grpo', 'igpo', 'vcr', 'vcr_mul')
+DEFAULT_BASE = 'Qwen3.5-2B'
 
 
-def specification(arm, seed=42, probe=False):
+def specification(arm, seed=42, probe=False, base=DEFAULT_BASE, sft='sft'):
     assert arm in ARMS
-    initial = RUNS / 'sft' / 'final'
-    return dict(name=f'{arm}-{seed}' + ('-probe' if probe else ''), sft=False,
+    initial = RUNS / sft / 'final'
+    tag = '' if base == DEFAULT_BASE else f'{base}-'
+    return dict(name=f'{arm}-{tag}{seed}' + ('-probe' if probe else ''), sft=False, base_model=base,
                 algorithm=arm, initial=str(initial), reference=str(initial),
                 learning_rate=1e-5, beta=0.02, rank=8, steps=4 if probe else 2048,
                 dataset=str(DATA / 'rl.jsonl'))
@@ -42,8 +48,10 @@ def main():
     parser.add_argument('--cap-gib', type=float, default=8)
     parser.add_argument('--probe', action='store_true')
     parser.add_argument('--resume', type=Path)
+    parser.add_argument('--base', default=DEFAULT_BASE, type=run_name, help='base model under models/')
+    parser.add_argument('--sft', default='sft', type=run_name, help='SFT run trained on --base; initial and frozen reference')
     args = parser.parse_args()
-    spec = specification(args.arm, args.seed, args.probe)
+    spec = specification(args.arm, args.seed, args.probe, args.base, args.sft)
     args.algorithm = spec['algorithm']
     out = output_dir(spec)
     out.mkdir(parents=True, exist_ok=True)
@@ -105,7 +113,9 @@ def main():
     from evisearch.environment import EvidenceEnv, MAX_TURNS
     from evisearch.training.trainer import AgentTrainer as GRPOTrainer, load_reference
     from evisearch.training.vcr import AgentTrainer as VCRTrainer
-    AgentTrainer = VCRTrainer if args.algorithm == 'vcr' else GRPOTrainer
+    import evisearch.model
+    evisearch.model.MODEL = ROOT / 'models' / spec['base_model']
+    AgentTrainer = VCRTrainer if args.algorithm in ('vcr', 'vcr_mul') else GRPOTrainer
 
     set_seed(args.seed)
     adapter = Path(spec['initial']) if spec['initial'] else None
